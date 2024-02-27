@@ -6,7 +6,9 @@
 
 ### Figma
 
-## Основной проект сайта (https://www.figma.com/proto/cjn2Vz6t2f5AwI7wQ9zi7D/Blockchain?page-id=0%3A1&type=design&node-id=319-8&viewport=-2013%2C411%2C0.36&t=2UJgCu8CwgyA7N4z-1&scaling=scale-down-width&starting-point-node-id=319%3A8&mode=design)
+Основной проект сайта (https://www.figma.com/proto/cjn2Vz6t2f5AwI7wQ9zi7D/Blockchain?page-id=0%3A1&type=design&node-id=319-8&viewport=-2013%2C411%2C0.36&t=2UJgCu8CwgyA7N4z-1&scaling=scale-down-width&starting-point-node-id=319%3A8&mode=design)
+
+---
 
 ### Команды git
 
