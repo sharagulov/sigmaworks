@@ -14,4 +14,5 @@
 **branch example** - создать ветку example  
 **checkout**- переключиться на ветку  
 **branch -D имя_ветки** - удалить ветку локально  
-**push origin -d имя_ветки** - удалить ветку онлайн  y
+**push origin -d имя_ветки** - удалить ветку онлайн  
+**config --global core.autocrlf false** - отключить LF -> CRLF  
