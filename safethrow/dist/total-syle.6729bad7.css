@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: Work-black;
+  src: url(/WorkSansGX.ede7ff4e.ttf);
+}
+body {
+  background-color:rgb(6, 6, 6);
+  color: white;
+  font-family: Work-black;
+}
+.background-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.raddiv {
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  position: absolute;
+  
+}
+.radpurple {
+  background: radial-gradient(circle, rgba(105, 61, 161, .5) 0%, rgb(0, 0, 0) 70%);
+  left: -400px;
+  
+}
+
+/*# sourceMappingURL=/total-syle.6729bad7.css.map */
