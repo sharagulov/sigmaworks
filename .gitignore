@@ -3,3 +3,4 @@ ignore
 package.json
 package-lock.json
 .cache
+dist
