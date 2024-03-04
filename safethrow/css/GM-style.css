@@ -30,7 +30,7 @@
 .box-flexes span {
   opacity: 66%;
   letter-spacing: .2px;
-  font-size: 14px;
+  font-size: 15px;
 }
 .header-cont {
   display: flex;
@@ -51,33 +51,36 @@
 
 .contents {
   z-index: 5;
-}
-.cont-half1 {
-  padding-top: 30vh;
+  padding-top: 235px;
   padding-inline: 80px;
+}
+.cont-half1-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 .half1-half1 {
   font-size: 80px;
-  line-height: 85px
+  line-height: 85px;
 }
 .h1h2-flex {
   display: flex;
-  gap: 30px;
+  gap: 25px;
 }
 .h1h2-span {
   font-weight: 200;
-  font-size: 20px;
+  font-size: 25px;
   background-color: rgba(255, 255, 255, 0.182);
-  padding-inline: 18px;
-  padding-block: 8px;
+  padding-inline: 25px;
+  padding-block: 9px;
   padding-top: 3px;
   border-radius: 30px;
-  opacity: .8;
+  opacity: .6;
 }
 .h1h3-span {
-  font-size: 22px;
+  font-size: 25px;
   background-color: rgba(150, 32, 183, 0.645);
-  padding-inline: 18px;
+  padding-inline: 27px;
   padding-block: 12px;
   padding-top: 9px;
   border-radius: 14px;
