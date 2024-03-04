@@ -1,14 +1,33 @@
-### Если не понятно, что делать
+<p align="left">
+  <img  src="https://i.ibb.co/9cHSWpG/white-Logo.png" alt="Logo" width="200px">
+  <span>‎ ‎ ‎ ‎ ‎ </span>
+  <img src="https://i.ibb.co/s3ZjKnq/logo-st.png" alt="Logo" width="200px">
+</p>
 
-Напиши Павлику срочно! Он расскажет.
+# SAFETHROW
+
+### О проекте
+Мы создаем web-приложение (web-сервис), пишем сервер, на котором оно будет работать. Приложение будет предназначено для компаний, которым требуется внутренний приватный канал связи.
+
+Пример его работы: директор запрашивает у секретаря паспортные данные всех сотрудников. Первый и последний — пользователи нашего веб-сервиса. Секретарь загружает все данные через интерфейс сайта на наш сервер. Все данные сразу же шифруются. Далее, эти данные секретарь отправляет директору, тоже в интерфейсе сайта, и директор, имея специальный ключ (сертификат), расшифровывает паспортные данные и получает их себе в пользование.
+
+Будем применять хэширование, шифрование, подписание электронной подписью.
 
 ---
 
-### Figma
+### Полезные ссылки
+<a href="https://habr.com/ru/articles/649363/"><img alt="Static Badge" src="https://img.shields.io/badge/%D0%A5%D1%8D%D1%88%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D1%85%D0%B0%D0%B1%D1%80-red?style=for-the-badge&logo=habr&logoColor=white&color=%23617aba"></a>
+<span>ㅤ</span>
+<a href="https://habr.com/ru/articles/649363/"><img alt="Static Badge" src="https://img.shields.io/badge/%D0%A5%D1%8D%D1%88%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D1%85%D0%B0%D0%B1%D1%80-red?style=for-the-badge&logo=habr&logoColor=white&color=%23617aba"></a>
+<span>ㅤ</span>
+<a href="https://www.figma.com/proto/cjn2Vz6t2f5AwI7wQ9zi7D/Blockchain?page-id=0%3A1&type=design&node-id=319-8&viewport=-2013%2C411%2C0.36&t=2UJgCu8CwgyA7N4z-1&scaling=scale-down-width&starting-point-node-id=319%3A8&mode=design"><img alt="Static Badge" src="https://img.shields.io/badge/%D0%9C%D0%B0%D0%BA%D0%B5%D1%82%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0-%D0%A4%D0%B8%D0%B3%D0%BC%D0%B0-purple?style=for-the-badge&logo=figma&logoColor=white"></a>
+<span>ㅤ</span>
+<a href="https://www.figma.com/proto/nh8FZBz0YfU2EXr6MaH1kc/Logo?page-id=0%3A1&type=design&node-id=12-27&viewport=1085%2C-156%2C0.27&t=IqMwW5NXYk4WffPn-1&scaling=min-zoom&mode=design"><img alt="Static Badge" src="https://img.shields.io/badge/%D0%9C%D0%B0%D0%BA%D0%B5%D1%82%20%D0%BB%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF%D0%B0-%D0%A4%D0%B8%D0%B3%D0%BC%D0%B0-purple?style=for-the-badge&logo=figma&logoColor=white"></a>
 
-Основной проект сайта (https://www.figma.com/proto/cjn2Vz6t2f5AwI7wQ9zi7D/Blockchain?page-id=0%3A1&type=design&node-id=319-8&viewport=-2013%2C411%2C0.36&t=2UJgCu8CwgyA7N4z-1&scaling=scale-down-width&starting-point-node-id=319%3A8&mode=design)
 
----
+
+
+
 
 ### Команды git
 
