@@ -7,7 +7,7 @@ document.querySelector('btn_get_chain').onClick = getChain(blockchain);
 document.querySelector('btn_inp').onClick = newBlock(blockchain);
 
 function getBlock(blockchain, n){
-    if( blockchain.chain.lenght >= n - 1 )
+    if( blockchain.chain.lenght > n && n > 0)
         document.querySelector('block_get_block').value = blockchain[n];
     else
         document.querySelector('block_get_block').value = "Block not found";
