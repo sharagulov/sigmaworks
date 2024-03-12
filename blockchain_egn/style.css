@@ -1,0 +1,42 @@
+
+.log{
+    margin-top: 100px;
+    margin-left: auto;
+    width: 800px;
+    height: 200px;
+    border: 1px solid #000;
+    padding-right: 10px;
+    padding-left: 100px;    
+}
+.button{
+    margin-left: -400px;
+    float: left;
+    width: 400px;
+    margin-top: 31px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #24356f;
+    line-height: 20px;
+    position: relative;
+}
+.newBlock{
+    float: left;
+    width: 400px;
+    margin-top: 31px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #24356f;
+    line-height: 20px;
+    position: relative;
+  }
+  .newBlock input[type=text] {
+    height: 24px;
+    font-size: 15px;
+  }
+  .newBlock input[type=submit] {
+    height: 32px;
+    padding: 0;
+    margin: 0;
+  }

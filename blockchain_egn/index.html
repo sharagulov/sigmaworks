@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA_Compatible" content="IE=edge">
+    <meta name = "viewport" content="width=device-width, initial-scale=1.0"
+    <title>Блокчейн</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="blockchain.js"></script>
+    <script src="index.js"></script>
+</head>   
+
+<body>
+    <div class = "logs">        
+        <div class = "log get_block">
+            <div class="get_block_screen">
+                <p></p>
+            </div>
+            <div class="button">
+                <input type="submit" class= btn_get_block value="Получить n-ый блок"/>
+                    <input class= index_inp size="3" placeholder="n" />          
+            </div>           
+        </div>
+
+        <div class = "log get_chain">
+            <div class="get-chain-screen">
+                <p></p>
+            </div>
+            <div class="button">
+                <input type="submit" class= btn_get_chain value="Получить цепь"/> 
+            </div>           
+        </div>
+        
+        <div class="newBlock">
+            <div class="newBlock_div">
+
+              <input type="text" class = info_inp size="100" placeholder="Информация для нового блока цепи" />
+          
+              <input type="submit" class = btn_inp size="10" value="Добавить блок" />
+            </div>
+        </div>  
+    </div>    
+</body>
+</html>
