@@ -3,31 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="css/login.css">
+    <title>Document</title>
 </head>
 <body>
-    <div class="wrapper">
-        <div class="main">
-            <div class="register-window">
-                <div class="inner-content">
-                    <div class="register-window-header-text"><p>Регистрация в системе Safethrow</p></div>
-                    <div class="register-window-small-text">Safethrow предоставляет приватное и надежное файловое хранилище, 
-                        поддерживающее фукцию шифрования документов и создания электронных 
-                        подписей, а также генерации сертификатов и ключей.</div>
-                    <div class="register-window-containers">
-                        <div class="register-window-email-container"></div>
-                        <div class="register-window-user-container"></div>
-                        <div class="register-window-lock-container"></div>
-                    </div>
-                    <div class="rigister-window-agree">
-                        <div class="register-window-agree-check"></div>
-                        <div class="register-window-agree-text">Я согласен на обработку персональных данных</div>
-                    </div>
-                    <div class="rigister-window-login-btn">Зарегистрироваться</div>
-                    <div class="rigister-window-bottom-text">Уже зарегистрированны? Войти</div>
+    <div id="step1" class="main1">
+        <div class="register-window">
+            <form class="inner-content">
+                <div class="register-window-header-text"><p>Войти</p></div>
+                <div class="register-window-containers">
+                    <input type="email" class="register-window-email-container" placeholder="pochta@mail.ru"></input>
+                    <input type="name" class="register-window-user-container" placeholder="Ваше имя"></input>
+                    <input type="password" class="register-window-lock-container" placeholder="**********"></input>
                 </div>
-            </div>
+                 <btn onclick="nextStep(2)"  class="rigister-window-login-btn">Войти</btn>
+                <div class="rigister-window-bottom-text">Еще не зарегистрированны?<a href="registration.html">Зарегистрироваться</a></div>
+            </form>
         </div>
     </div>
 </body>

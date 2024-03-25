@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/registration.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <div id="step1" class="main1">
+        <div class="register-window">
+            <form class="inner-content">
+                <div class="register-window-header-text"><p>Регистрация в системе Safethrow</p></div>
+                <div class="register-window-small-text">Safethrow предоставляет приватное и надежное файловое хранилище, 
+                    поддерживающее фукцию шифрования документов и создания электронных 
+                                            подписей, а также генерации сертификатов и ключей.</div>
+                <div class="register-window-containers">
+                    <input type="email" class="register-window-email-container" placeholder="pochta@mail.ru"></input>
+                    <input type="name" class="register-window-user-container" placeholder="Ваше имя"></input>
+                    <input type="password" class="register-window-lock-container" placeholder="**********"></input>
+                </div>
+                <div class="rigister-window-agree">
+                    <input type="checkbox" class="register-window-agree-check"></input>
+                    <div class="register-window-agree-text">Я согласен на <a href="#">обработку персональных данных</a></div>
+                </div>
+                 <btn onclick="nextStep(2)"  class="rigister-window-login-btn">Далее</btn>
+                <div class="rigister-window-bottom-text">Уже зарегистрированны?<a href="login.html">Войти</a></div>
+            </form>
+        </div>
+    </div>
+    <div id="step2" class="main2">
+       <div class="register-window">
+            <form class="inner-content">
+                <div class="register-window-header-text2"><p>Шаг 2</p></div>
+                <div class="register-window-containers">
+                    <input type="email" class="register-window-email-container" placeholder="pochta@mail.ru"></input>
+                    <select class="company-workers" name="company-workers" id="company-workers">
+                        <option value="">Сотрудники</option>
+                        <option value="worker1">Сотрудник1</option>
+                        <option value="worker1">Сотрудник1</option>
+                        <option value="worker1">Сотрудник1</option>
+                    </select>
+                    <input type="name" class="register-window-user-container" placeholder="Ваше имя"></input>
+                    <input type="password" class="register-window-lock-container" placeholder="**********"></input>
+                </div>
+                <btn  onclick="prevStep(2)" class="rigister-window-prev-btn">Назад</btn>
+                <btn onclick="submit()"  class="rigister-window-login-btn">Зарегистрироваться</btn>
+                <div class="rigister-window-bottom-text">Уже зарегистрированны?<a href="login.html">Войти</a></div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

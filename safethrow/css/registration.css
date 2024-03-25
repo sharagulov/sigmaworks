@@ -34,15 +34,12 @@
   }
   .inner-content{
     margin: 57px;
-    flex-direction: column;
-    justify-content: space-between;
   }
   .register-window-header-text{
     color:#fff;
     font-weight: bold;
     font-size: 24px;
     font-family: worksansBolt, sans-serif;
-    text-align: center;
   }
 .register-window-header-text2{
     color:#fff;
@@ -163,8 +160,48 @@ input:focus {
   }
   
   /* Анимация при наведении на кнопку отправки формы */
-.rigister-window-login-btn:hover {
+.rigister-window-login-btn:hover,
+.rigister-window-prev-btn:hover
+ {
     background: linear-gradient(to right, #94abf5, #5a4eb0, #94abf5);
     transform: scale(110%);
     transition: 0.7s ;
   }
+  .main2{
+    background-image: url(../img/background.png);
+    position: absolute;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    background-color: black;
+    display: none;
+  }
+  .rigister-window-prev-btn{
+    margin-top: 50px;
+    width: 380px;
+    height: 57px;
+    background-color: #0000ff;
+    color: #fff;
+    border-radius: 10px;
+    font-family: worksansBolt, sans-serif;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .company-workers{
+    width: 380px;
+    height: 57px;
+    background-color: #18191B;
+    border: 2px solid #3c3d3e;
+    border-radius: 10px;
+    margin-top: 41px;
+    color: #fff;
+    font-family: worksansRegular, sans-serif;
+    font-size: 24px;
+  }
+
+  
