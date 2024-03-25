@@ -1,0 +1,121 @@
+@font-face {
+    font-family: worksansBolt;
+    src: url(../fonts/work_sans/WorkSans/Web/WorkSans-Bold.woff2);
+}
+@font-face {
+    font-family: worksansRegular;
+    src: url(../fonts/work_sans/WorkSans/Web/WorkSans-Regular.woff2);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .wrapper{
+    font-family: raleway_f, sans-serif;
+
+
+  }
+  .main{
+    background-image: url(../img/background.png);
+    position: absolute;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    background-color: black;
+  }
+  .register-window{
+    background-color: #151618;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 86vh;
+    width: 25%;
+    border-radius: 12px;
+  }
+  .inner-content{
+    margin: 57px;
+  }
+  .register-window-header-text{
+    color:#fff;
+    font-weight: bold;
+    font-size: 24px;
+    font-family: worksansBolt, sans-serif;
+
+  }
+.register-window-small-text{
+    color: #8C8D8E;
+    margin-top: 20px;
+    font-family: worksansBolt, sans-serif;
+}
+.register-window-containers{
+    margin-top: 20px;
+}
+.register-window-email-container{
+    width: 380px;
+    height: 57px;
+    background-color: #18191B;
+    border: 2px solid #3c3d3e;
+    border-radius: 10px;
+}
+.register-window-user-container{
+    width: 380px;
+    height: 57px;
+    background-color: #18191B;
+    border: 2px solid #3c3d3e;
+    border-radius: 10px;
+    margin-top: 41px;
+}
+.register-window-lock-container{
+    width: 380px;
+    height: 57px;
+    background-color: #18191B;
+    border: 2px solid #3c3d3e;
+    border-radius: 10px;
+    margin-top: 41px;
+}
+.rigister-window-agree{
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 95%;
+    margin-left: 15px;
+    margin-top: 25px;
+}
+.register-window-agree-check{
+    height: 18px;
+    width: 20px;
+    background-color: #18191B;
+    border: 2px solid #3c3d3e;
+    border-radius: 5px;
+}
+.register-window-agree-text{
+    color: #8C8D8E;
+    font-family: worksansBolt, sans-serif;
+    font-size: 13px;
+}
+.rigister-window-login-btn{
+    margin-top: 29px;
+    width: 380px;
+    height: 57px;
+    background-color: #0000ff;
+    color: #fff;
+    border-radius: 10px;
+    font-family: worksansBolt, sans-serif;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rigister-window-bottom-text{
+    margin-top: 39px;
+    color: #8C8D8E;
+    font-family: worksansRegular, sans-serif;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
