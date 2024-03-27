@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/login.css">
+    <script src="main.js" defer></script>
     <title>Document</title>
 </head>
 <body>
@@ -12,11 +13,13 @@
             <form class="inner-content">
                 <div class="register-window-header-text"><p>Войти</p></div>
                 <div class="register-window-containers">
-                    <input type="email" class="register-window-email-container" placeholder="pochta@mail.ru"></input>
-                    <input type="name" class="register-window-user-container" placeholder="Ваше имя"></input>
-                    <input type="password" class="register-window-lock-container" placeholder="**********"></input>
+                    <input type="name" class="register-window-user-container" placeholder="Ваше имя">
+                    <div class="inputPassBox">
+                        <input type="password" class="passWindow" id="passInput" placeholder="***********"> 
+                        <img class="imgCloseIcon" src="icons/eye-closed.svg" id="eyeicon">
+                    </div>
                 </div>
-                 <btn onclick="nextStep(2)"  class="rigister-window-login-btn">Войти</btn>
+                 <btn  class="rigister-window-login-btn">Войти</btn>
                 <div class="rigister-window-bottom-text">Еще не зарегистрированны?<a href="registration.html">Зарегистрироваться</a></div>
             </form>
         </div>

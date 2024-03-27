@@ -28,7 +28,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 86vh;
+    height: 60vh;
     width: 25%;
     border-radius: 12px;
   }
@@ -40,24 +40,11 @@
   .register-window-header-text{
     color:#fff;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 60px;
     font-family: worksansBolt, sans-serif;
     text-align: center;
   }
-.register-window-header-text2{
-    color:#fff;
-    font-weight: bold;
-    font-size: 24px;
-    font-family: worksansBolt, sans-serif;
-    text-align: center;
-}
-.register-window-small-text{
-    color: #8C8D8E;
-    margin-top: 20px;
-    font-family: worksansBolt, sans-serif;
-}
 .register-window-containers{
-    margin-top: 20px;
     display: block;
 }
 .register-window-email-container{
@@ -76,6 +63,17 @@
     color: #c0c0c0;
 }
 .register-window-user-container{
+    width: 365px;
+    height: 57px;
+    background-color: #18191B;
+    border: 2px solid #3c3d3e;
+    border-radius: 10px;
+    margin-top: 41px;
+    color: #fff;
+    font-family: worksansRegular, sans-serif;
+    font-size: 24px;
+}
+.register-window-pass-container{
     width: 380px;
     height: 57px;
     background-color: #18191B;
@@ -86,37 +84,20 @@
     font-family: worksansRegular, sans-serif;
     font-size: 24px;
 }
-.register-window-lock-container{
-    width: 380px;
-    height: 57px;
-    background-color: #18191B;
-    border: 2px solid #3c3d3e;
-    border-radius: 10px;
-    margin-top: 41px;
-    color: #fff;
-    font-family: worksansRegular, sans-serif;
-    font-size: 24px;
+
+
+
+.check-pass-btn{
+  position: absolute;
+  background-color:transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  transform: translateY(-195%);
+  right: 65px;
+  color: #fff
 }
-.rigister-window-agree{
-    display: flex;
-    justify-content: space-between;
-    height: 100%;
-    width: 95%;
-    margin-left: 15px;
-    margin-top: 25px;
-}
-.register-window-agree-check{
-    height: 18px;
-    width: 20px;
-    background-color: #18191B;
-    border: 2px solid #3c3d3e;
-    border-radius: 5px;
-}
-.register-window-agree-text{
-    color: #8C8D8E;
-    font-family: worksansBolt, sans-serif;
-    font-size: 13px;
-}
+
 .rigister-window-login-btn{
     margin-top: 29px;
     width: 380px;
@@ -168,3 +149,25 @@ input:focus {
     transform: scale(110%);
     transition: 0.7s ;
   }
+.passWindow{
+    width: 380px;
+    height: 57px;
+    background-color: #18191B;
+    border: 2px solid #3c3d3e;
+    border-radius: 10px;
+    margin-top: 41px;
+    color: #fff;
+    font-family: worksansRegular, sans-serif;
+    font-size: 24px;
+}
+.imgCloseIcon{
+  position: absolute;
+  cursor: pointer;
+  margin-top: 40px;
+  right: 70px;
+}
+.inputPassBox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
