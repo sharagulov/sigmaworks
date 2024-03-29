@@ -13,7 +13,7 @@
 <body>
     <div class="reg-container">
         <div class="noise"></div>
-        <div class="reg-grid">
+        <div class="reg-flex">
             <div class="reg-blank-flex-reserve">
                 <div class="reg-blank">
                     <div class="reg-blank-inner-blocks-flex">
@@ -22,31 +22,45 @@
                         <div class="reg-blank-desc"><span>Safethrow предоставляет приватное и надежное файловое хранилище, поддерживающее фукцию шифрования документов и создания электронных подписей, а также генерации сертификатов и ключей</span></div>
                         <form class="reg-input-flex" action="">
                             <div class="reg-login-box reg-boxes">
-                                <input class="reg-input-area" id="reg-login" type="text">
-                                <label class="reg-labels" for="reg-login">Логин</label>
+                                <input class="reg-input-area" id="reg-login" type="text" required>
+                                <label class="reg-labels" id="reg-login-label" for="reg-login">Логин</label>
+                                <img class="reg-input-help" src="/img/help-icon.png" alt="">
+                                <div class="reg-hint1 reg-hint">
+                                    <span>Это название Вашего аккаунта в системе Safethrow. С его помощью осуществляется вход после регистрации.</span>
+                                </div>
                             </div>
                             <div class="reg-mail-box reg-boxes">
-                                <input class="reg-input-area" id="reg-mail" type="text">
-                                <label class="reg-labels" for="reg-mail">Почта</label>
+                                <input class="reg-input-area" id="reg-mail" type="text" required>
+                                <label class="reg-labels" id="reg-mail-label" for="reg-mail">Почта</label>
+                                <img class="reg-input-help" src="/img/help-icon.png" alt="">
+                                <div class="reg-hint1 reg-hint">
+                                    <span>Адрес основной (контактной) почты Вашей компании. На нее будет отправлено письмо для верификации аккаунта.</span>
+                                </div>
                             </div>
                             <div class="reg-name-box reg-boxes">
-                                <input class="reg-input-area" id="reg-name" type="text">
-                                <label class="reg-labels" for="reg-name">Название организации</label>
+                                <input class="reg-input-area" id="reg-name" type="text" required>
+                                <label class="reg-labels" id="reg-name-label" for="reg-name">Название организации</label>
+                                <img class="reg-input-help" src="/img/help-icon.png" alt="">
+                                <div class="reg-hint1 reg-hint">
+                                    <span>Это название Вашего аккаунта в системе Safethrow. С его помощью осуществляется вход после регистрации.</span>
+                                </div>
                             </div>
                             <div class="reg-checkbox-flex">
-                                <input id="reg-blank-agree" type="checkbox"></input>
+                                <input style="position: relative; top: -6px;" id="reg-blank-agree" type="checkbox"></input>
                                 <label for="reg-blank-agree">Я принимаю условия пользовательского соглашения</label>
                             </div>
                             <div class="reg-blank-buttons-flex">
-                                <button class="reg-blank-button-next"></button>
-                                <button class="reg-blank-button-prev"></button>
+                                <button type="button" class="reg-blank-button-next">Назад</button>
+                                <button type="button" class="reg-blank-button-prev">Далее</button>
                             </div>
                         </form>
-                        <div class="reg-blank-already"><span>Уже есть аккаунт? <a style="text-decoration: none;" href="">Войти</a></span></div>
+                        <div class="reg-blank-already"><span>Уже есть аккаунт? <a style="text-decoration: none; color: #594f9b;" href="">Войти</a></span></div>
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
+    <script src="./js/registration.js"></script>
 </body>
 </html>

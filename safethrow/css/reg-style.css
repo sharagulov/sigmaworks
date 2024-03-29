@@ -4,21 +4,38 @@
     font-weight: 400;
     font-style: normal; 
     font-size: 12px;
+    accent-color: #4538A2;
+}
+body {
+    background-image: url(/img/background.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
 }
 .reg-container {
     font-size: 11px;
     line-height: 14px;
     color: rgba(255, 255, 255, 0.5);
 }
-.reg-grid {
-    display: grid;
-    grid-template-columns: repeat(19, 1fr);
-    grid-template-rows: repeat(1);
-    height: 100%;
+.reg-container span::selection, button::selection, input::selection, a::selection, label::selection {
+    color: rgb(255, 255, 255);
+    background-color: grey;
+}
+.reg-container button::selection {
+    color: #ffffff;
+    background-color: grey;
+}
+.reg-container img::selection {
+    user-select: none;
+}
+
+.reg-flex {
+    display: flex;
+    justify-content: center;
 }
 .reg-blank-flex-reserve {
     display: flex;
-    grid-column: 8/13;
     width: 350px;
     height: 100%;
     justify-content: center;
@@ -27,21 +44,24 @@
 .reg-blank {
     background-color: #151618;
     width: 100%;
-    height: 550px;
+    height: 600px;
     padding: 40px;
     padding-top: 32px;
+    border-radius: 9px;
+    box-shadow: 0 0 15px rgba(0,0,0,.3);
     
 }
 .reg-blank-inner-blocks-flex {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 17px;
 }
 .reg-input-flex {
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding-top: 10px;
 }
 .reg-blank-buttons-flex {
     display: flex;
@@ -67,7 +87,6 @@
     padding-left: 10px;
     font-size: 14px;
     transition: .3s;
-    
 }
 .reg-labels {
     font-size: 14px;
@@ -82,12 +101,64 @@
     opacity: 0;
     transition: .3s;
 }
-
+ .reg-input-area:valid + .reg-labels {
+    opacity: 0;
+}
+.reg-input-help {
+    position: absolute;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    opacity: .3;
+}
+.reg-hint {
+    position: absolute;
+    opacity: 0;
+}
+@media (min-width: 980px) {
+    .reg-hint {
+        position: absolute;
+        width: 240px;
+        height: fit-content;
+        padding: 10px;
+        right: 330px;
+        border-radius: 10px;
+        background-color: #151618;
+        transition: .5s;
+        transition-delay: .5s;
+    }
+    .reg-input-help:hover + .reg-hint {
+        opacity: 1;
+        
+    }   
+}
 .reg-checkbox-flex {
     display: flex;
     flex-direction: row;
     gap: 5px;
+    margin-bottom: 10px;
+}
+.reg-blank-buttons-flex {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.reg-blank-buttons-flex button {
+    width: 100%;
+    height: 39px;
+    border-style: none;
+    border-radius: 10px;
+    background-color: #4438a2b0;
+    color: white;
+    transition: .3s;
+}
+.reg-blank-buttons-flex button:hover {
+    background-color: #4438a2;
 }
 .reg-blank-already {
     text-align: center;
 }
+
+
