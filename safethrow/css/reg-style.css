@@ -82,9 +82,7 @@
     opacity: 0;
     transition: .3s;
 }
- .reg-input-area:valid {/*+ .reg-labels{ */
-    transform: rotateY('10');
-}
+
 .reg-checkbox-flex {
     display: flex;
     flex-direction: row;
