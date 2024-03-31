@@ -3,6 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+    --middleGray: rgba(255, 255, 255, .5);
+    --centerMiddleGray: rgba(255, 255, 255, .85);
+}
 body {
   background-color:rgb(6, 6, 6);
   color: white;

@@ -1,3 +1,6 @@
+let description1 = document.getElementById("reg-blank-desc1");
+let description2 = document.getElementById("reg-blank-desc2");
+
 let nextActionButton = document.getElementById("reg-blank-button-next");
 let submitActionButton = document.getElementById("reg-blank-button-submit");
 let prevActionButton = document.getElementById("reg-blank-button-prev");
@@ -15,6 +18,7 @@ let regBox2 = document.getElementsByClassName("reg-box2");
 let regBox = document.getElementsByClassName("reg-boxes");
 
 let guideBox = document.getElementById("reg-guide");
+let dots = document.getElementsByClassName("dot");
 let dot1 = document.getElementById("dot1");
 let dot2 = document.getElementById("dot2");
 let dot3 = document.getElementById("dot3");
@@ -45,7 +49,8 @@ function nextAction() {
     buttonsMove.style.cssText = `transition: .4s`;
     alreadyMove.style.cssText = `transition: .5s`;
 
-    Object.assign(guideBox.style,{top: "70px", transition: "1s"})
+    Object.assign(guideBox.style,{top: "70px", transition: ".55s"})
+
 }
 function prevAction() {
     condition = 1;
@@ -71,12 +76,20 @@ function prevAction() {
 }
 
 function check() {
-    if(condition === 1) {
-        Object.assign(dot1.style,{backgroundColor:"#6957f524"});
-        Object.assign(dot2.style,{backgroundColor:"transparent"});
+    if(condition === 2) {
+        Object.assign(dot1.style,{backgroundColor:"transparent", color:"var(--middleGray)"});
+        Object.assign(dot2.style,{backgroundColor:"#6957f542", color:"var(--centerMiddleGray)"});
+        Object.assign(description1.style,{opacity:"0",zIndex:"1"});
+        setTimeout(() => {
+            Object.assign(description2.style,{opacity:"1",zIndex:"2"});
+        }, 200);
     }
-    else if(condition === 2) {
-        Object.assign(dot1.style,{backgroundColor:"transparent"});
-        Object.assign(dot2.style,{backgroundColor:"#6957f524"});
+    else if(condition === 1) {
+        Object.assign(dot1.style,{backgroundColor:"#6957f542", color:"var(--centerMiddleGray)"});
+        Object.assign(dot2.style,{backgroundColor:"transparent", color:"var(--middleGray)"});
+        setTimeout(() => {
+            Object.assign(description1.style,{opacity:"1", zIndex:"2"});
+        }, 200);
+        Object.assign(description2.style,{opacity:"0",zIndex:"1"});
     }
 }
