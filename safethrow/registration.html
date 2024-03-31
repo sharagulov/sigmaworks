@@ -14,51 +14,80 @@
     <div class="reg-container">
         <div class="noise"></div>
         <div class="reg-flex">
-            <div class="reg-blank-flex-reserve">
-                <div class="reg-blank">
+            <div class="reg-blank-flex-reserve" id="reg-blank-flex-reserve">
+                <div class="reg-blank" id="reg-blank">
                     <div class="reg-blank-inner-blocks-flex">
-                        <div class="reg-blank-logo"><img style="width: 25px; height: 25px;" src="/img/Add Male User Group.png" alt=""></div>
+                        <div class="reg-blank-logo"><img draggable="false" style="width: 25px; height: 25px;" src="/img/Add Male User Group.png" alt=""></div>
                         <div class="reg-blank-name"><span style="font-size: 23px; color: white; font-weight: 600; line-height: 25px;">Регистрация в системе Safethrow</span></div>
                         <div class="reg-blank-desc"><span>Safethrow предоставляет приватное и надежное файловое хранилище, поддерживающее фукцию шифрования документов и создания электронных подписей, а также генерации сертификатов и ключей</span></div>
-                        <form class="reg-input-flex" action="">
-                            <div class="reg-login-box reg-boxes">
-                                <input class="reg-input-area" id="reg-login" type="text" required>
-                                <label class="reg-labels" id="reg-login-label" for="reg-login">Логин</label>
-                                <img class="reg-input-help" src="/img/help-icon.png" alt="">
+                        <div class="reg-input-flex-1" action="">
+
+                            <div class="reg-login-box reg-boxes reg-box1">
+                                <input class="reg-input-area" id="reg-boxes" type="text" autocomplete="off" required>
+                                <label class="reg-labels" id="inputLabel1" for="reg-login">Логин</label>
+                                <img draggable="false" class="reg-input-help" src="/img/help-icon.png" alt="">
                                 <div class="reg-hint1 reg-hint">
-                                    <span>Это название Вашего аккаунта в системе Safethrow. С его помощью осуществляется вход после регистрации.</span>
+                                    <span>Это название Вашего аккаунта в системе Safethrow. С его помощью осуществляется вход после регистрации.<br><br>Рекомендуемая длина до 20 символов.</span>
                                 </div>
                             </div>
-                            <div class="reg-mail-box reg-boxes">
-                                <input class="reg-input-area" id="reg-mail" type="text" required>
-                                <label class="reg-labels" id="reg-mail-label" for="reg-mail">Почта</label>
-                                <img class="reg-input-help" src="/img/help-icon.png" alt="">
+                            <div class="reg-pass-box reg-boxes reg-box2" style="position: absolute; width: 100%; opacity: 0;">
+                                <input class="reg-input-area" id="reg-login" type="text" autocomplete="off" required>
+                                <label class="reg-labels" id="inputLabel1" for="reg-login">Пароль</label>
+                                <img draggable="false" class="reg-input-help" src="/img/help-icon.png" alt="">
                                 <div class="reg-hint1 reg-hint">
-                                    <span>Адрес основной (контактной) почты Вашей компании. На нее будет отправлено письмо для верификации аккаунта.</span>
+                                    <span>Пароль для защиты аккаунта. Он будет храниться на сервере в виде необратимого набора сгенерированных символов, мы гарантируем его приватность.<br><br>Рекомендуется использование заглавных и строчных латинских букв, а также цифр и специальных символов.</span>
                                 </div>
                             </div>
-                            <div class="reg-name-box reg-boxes">
-                                <input class="reg-input-area" id="reg-name" type="text" required>
-                                <label class="reg-labels" id="reg-name-label" for="reg-name">Название организации</label>
-                                <img class="reg-input-help" src="/img/help-icon.png" alt="">
+                            <div class="reg-mail-box reg-boxes reg-box1" id="reg-boxes">
+                                <input class="reg-input-area" id="reg-mail" type="text" autocomplete="off" required>
+                                <label class="reg-labels" id="inputLabel2" for="reg-mail">Почта</label>
+                                <img draggable="false" class="reg-input-help" src="/img/help-icon.png" alt="">
                                 <div class="reg-hint1 reg-hint">
-                                    <span>Второе имя Вашего аккаунта, видимое другими пользователями. Оно будет отображаться в личном кабинете.</span>
+                                    <span>Адрес почты Вашей компании, на который вы предпочитаете получить письмо для верификации аккаунта. Также на него будут отправляться уведомления и рассылки.</span>
                                 </div>
                             </div>
-                            <div class="reg-checkbox-flex">
+                            <div class="reg-repass-box reg-boxes reg-box2"  style="position: absolute; width: 100%; top: 70px; opacity: 0;">
+                                <input class="reg-input-area" id="reg-login" type="text" autocomplete="off" required>
+                                <label class="reg-labels" id="inputLabel1" for="reg-login">Повтор пароля</label>
+                            </div>
+                            <div class="reg-name-box reg-boxes reg-box1">
+                                <input class="reg-input-area" id="reg-boxes" type="text" autocomplete="off" required>
+                                <label class="reg-labels" id="inputLabel3" for="reg-name">Название организации</label>
+                                <img draggable="false" class="reg-input-help" src="/img/help-icon.png" alt="">
+                                <div class="reg-hint1 reg-hint">
+                                    <span>Второе имя Вашего аккаунта, видимое другими пользователями. Оно будет отображаться в личном кабинете.<br><br> Рекомендуемая длина до 20 символов.</span>
+                                </div>
+                            </div>
+                            <div class="reg-ogrn-box reg-boxes reg-box2" style="position: absolute; width: 100%; top: 130px; opacity: 0;">
+                                <input class="reg-input-area" id="reg-login" type="text" autocomplete="off" required>
+                                <label class="reg-labels" id="inputLabel1" for="reg-login">ОГРН</label>
+                                <img draggable="false" class="reg-input-help" src="/img/help-icon.png" alt="">
+                                <div class="reg-hint1 reg-hint">
+                                    <span>Точные данные по идентификации юридического лица. ДОПОЛНИТЬ.</span>
+                                </div>
+                            </div>
+                            <div style="opacity: 0;" class="reg-checkbox-flex" id="reg-checkbox-flex">
                                 <input style="position: relative; top: -6px;" id="reg-blank-agree" type="checkbox"></input>
                                 <label for="reg-blank-agree">Я принимаю условия пользовательского соглашения</label>
                             </div>
-                            <div class="reg-blank-buttons-flex">
-                                <button type="button" class="reg-blank-button-next">Назад</button>
-                                <button type="button" class="reg-blank-button-prev">Далее</button>
+                            <div class="reg-blank-buttons-flex" id="reg-blank-buttons-flex">
+                                <button style="opacity: .5;" onclick="prevAction(), check()" type="button" class="reg-blank-button-prev" id="reg-blank-button-prev">Назад</button>
+                                <button style="position: absolute; width: 46.25%; left: 0; opacity: 0; z-index: -1;" onclick="prevAction(), check()" type="submit" class="reg-blank-button-prev2" id="reg-blank-button-prev2">Назад</button>
+                                <button style="opacity: 1;" onclick="nextAction(), check()" type="button" class="reg-blank-button-next" id="reg-blank-button-next">Далее</button>
+                                <button style="position: absolute; width: 46.25%; right: 0; opacity: 0; z-index: -1;" type="submit" class="reg-blank-button-submit" id="reg-blank-button-submit">Отправить</button>
                             </div>
-                        </form>
-                        <div class="reg-blank-already"><span>Уже есть аккаунт? <a style="text-decoration: none; color: #594f9b;" href="">Войти</a></span></div>
+                        </div>
+                        <div id="reg-blank-already" class="reg-blank-already"><span>Уже есть аккаунт? <a style="text-decoration: none; color: #594f9b;" href="">Войти</a></span></div>
                     </div>
                 </div>
             </div>
-            
+            <div class="reg-guide" id="reg-guide">
+                <div class="reg-guide-inside-flex">
+                    <div class="dot" id="dot1">1</div>
+                    <div class="dot" id="dot2">2</div>
+                    <div class="dot" id="dot3">3</div>
+                </div>
+            </div>
         </div>
     </div>
     <script src="./js/registration.js"></script>
