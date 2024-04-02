@@ -16,6 +16,7 @@ let flexblankMove = document.getElementById("reg-blank-flex-reserve");
 let regBox1 = document.getElementsByClassName("reg-box1");
 let regBox2 = document.getElementsByClassName("reg-box2");
 let regBox = document.getElementsByClassName("reg-boxes");
+let regBoxInput = document.getElementsByClassName("reg-box");
 
 let guideBox = document.getElementById("reg-guide");
 let dots = document.getElementsByClassName("dot");
@@ -91,5 +92,13 @@ function check() {
             Object.assign(description1.style,{opacity:"1", zIndex:"2"});
         }, 200);
         Object.assign(description2.style,{opacity:"0",zIndex:"1"});
+    }
+}
+
+function inputCheck() {
+    for(let index = 0; index < regBoxInput.length; index++) {
+        if(regBoxInput[index].value === "") {
+            alert(`пустое ${regBoxInput[index].id}`);
+        }
     }
 }

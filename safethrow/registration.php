@@ -21,18 +21,19 @@
                         <div class="reg-blank-name"><span style="font-size: 23px; color: white; font-weight: 600; line-height: 25px;">Регистрация в системе Safethrow</span></div>
                         <div class="reg-blank-desc" id="reg-blank-desc1"><span>Safethrow предоставляет приватное и надежное файловое хранилище, поддерживающее фукцию шифрования документов и создания электронных подписей, а также генерации сертификатов и ключей.</span></div>
                         <div style="margin-top: 112px; position: absolute; opacity: 0; width: 270px;" class="reg-blank-desc" id="reg-blank-desc2"><span>Наша рабочая политика основана на Вашей безопасности. Любая информация, доверенная нам на хранение, шифруется еще до отправки и принадлежит только Вам. В среде деловых компаний это особенно важный фактор.</span></div>
-                        <div class="reg-input-flex-1" action="">
+                        <form class="reg-input-flex-1" action="" novalidate>
 
                             <div class="reg-login-box reg-boxes reg-box1">
-                                <input class="reg-input-area" id="reg-boxes" type="text" autocomplete="off" required>
+                                <input class="reg-input-area reg-box" id="reg-login" type="text" autocomplete="off" required>
                                 <label class="reg-labels" id="inputLabel1" for="reg-login">Логин</label>
                                 <img draggable="false" class="reg-input-help" src="/img/help-icon.png" alt="">
                                 <div class="reg-hint1 reg-hint">
                                     <span>Это название Вашего аккаунта в системе Safethrow. С его помощью осуществляется вход после регистрации.<br><br>Рекомендуемая длина до 20 символов.</span>
                                 </div>
+                                
                             </div>
                             <div class="reg-pass-box reg-boxes reg-box2" style="position: absolute; width: 100%; opacity: 0;">
-                                <input class="reg-input-area" id="reg-login" type="text" autocomplete="off" required>
+                                <input class="reg-input-area reg-box" id="reg-pass" type="text" autocomplete="off" required>
                                 <label class="reg-labels" id="inputLabel1" for="reg-login">Пароль</label>
                                 <img draggable="false" class="reg-input-help" src="/img/help-icon.png" alt="">
                                 <div class="reg-hint1 reg-hint">
@@ -40,7 +41,7 @@
                                 </div>
                             </div>
                             <div class="reg-mail-box reg-boxes reg-box1" id="reg-boxes">
-                                <input class="reg-input-area" id="reg-mail" type="text" autocomplete="off" required>
+                                <input class="reg-input-area reg-box" id="reg-mail" type="text" autocomplete="off" required>
                                 <label class="reg-labels" id="inputLabel2" for="reg-mail">Почта</label>
                                 <img draggable="false" class="reg-input-help" src="/img/help-icon.png" alt="">
                                 <div class="reg-hint1 reg-hint">
@@ -48,11 +49,11 @@
                                 </div>
                             </div>
                             <div class="reg-repass-box reg-boxes reg-box2"  style="position: absolute; width: 100%; top: 70px; opacity: 0;">
-                                <input class="reg-input-area" id="reg-login" type="text" autocomplete="off" required>
+                                <input class="reg-input-area reg-box" id="reg-" type="text" autocomplete="off" required>
                                 <label class="reg-labels" id="inputLabel1" for="reg-login">Повтор пароля</label>
                             </div>
                             <div class="reg-name-box reg-boxes reg-box1">
-                                <input class="reg-input-area" id="reg-boxes" type="text" autocomplete="off" required>
+                                <input class="reg-input-area reg-box" id="reg-boxes" type="text" autocomplete="off" required>
                                 <label class="reg-labels" id="inputLabel3" for="reg-name">Название организации</label>
                                 <img draggable="false" class="reg-input-help" src="/img/help-icon.png" alt="">
                                 <div class="reg-hint1 reg-hint">
@@ -60,7 +61,7 @@
                                 </div>
                             </div>
                             <div class="reg-ogrn-box reg-boxes reg-box2" style="position: absolute; width: 100%; top: 130px; opacity: 0;">
-                                <input class="reg-input-area" id="reg-login" type="text" autocomplete="off" required>
+                                <input class="reg-input-area reg-box" id="reg-login" type="text" autocomplete="off" required>
                                 <label class="reg-labels" id="inputLabel1" for="reg-login">ОГРН</label>
                                 <img draggable="false" class="reg-input-help" src="/img/help-icon.png" alt="">
                                 <div class="reg-hint1 reg-hint">
@@ -73,11 +74,11 @@
                             </div>
                             <div class="reg-blank-buttons-flex" id="reg-blank-buttons-flex">
                                 <button style="opacity: .5;" onclick="prevAction(), check()" type="button" class="reg-blank-button-prev" id="reg-blank-button-prev">Назад</button>
-                                <button style="position: absolute; width: 46.25%; left: 0; opacity: 0; z-index: -1;" onclick="prevAction(), check()" type="submit" class="reg-blank-button-prev2" id="reg-blank-button-prev2">Назад</button>
+                                <button style="position: absolute; width: 46.25%; left: 0; opacity: 0; z-index: -1;" onclick="prevAction(), check()" type="button" class="reg-blank-button-prev2" id="reg-blank-button-prev2">Назад</button>
                                 <button style="opacity: 1;" onclick="nextAction(), check()" type="button" class="reg-blank-button-next" id="reg-blank-button-next">Далее</button>
-                                <button style="position: absolute; width: 46.25%; right: 0; opacity: 0; z-index: -1;" type="submit" class="reg-blank-button-submit" id="reg-blank-button-submit">Отправить</button>
+                                <button onclick="inputCheck()" style="position: absolute; width: 46.25%; right: 0; opacity: 0; z-index: -1;" type="button" class="reg-blank-button-submit" id="reg-blank-button-submit">Отправить</button>
                             </div>
-                        </div>
+                        </form>
                         <div id="reg-blank-already" class="reg-blank-already"><span>Уже есть аккаунт? <a style="text-decoration: none; color: #594f9b;" href="">Войти</a></span></div>
                     </div>
                 </div>

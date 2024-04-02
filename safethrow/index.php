@@ -35,7 +35,7 @@
           <section class="right-header-cont header-cont ">
             <div style="justify-content: flex-end;" class="right-box-flex box-flexes non-logo-box-flex side-box-flex">
               <span><a href="sign-in.html">Вход</a></span>
-              <span><a href="registration.html">Регистрация</a></span>
+              <span><a href="registration.php">Регистрация</a></span>
             </div>
           </section>
         </div>
