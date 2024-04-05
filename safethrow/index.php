@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello</title>
-  <link rel="stylesheet" href="/css/total-syle.css">
-  <link rel="stylesheet" href="/css/GM-style.css">
+  <title>Safethrow</title>
+  <link rel="stylesheet" href="/css/total-style.css">
+  <link rel="stylesheet" href="/css/index-style.css">
   <link rel="stylesheet" href="/css/about-style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
@@ -23,26 +26,27 @@
           </section>
           <section class="center-header-cont header-cont">
             <div class="center-box-flex box-flexes non-logo-box-flex">
-              <span>Главная</span>
-              <span>О нас</span>
-              <span>Библиотека</span>
-              <span>Отправка</span>
+              <span><a href="">Главная</a></span>
+              <span><a href="">О нас</a></span>
+              <span><a href="">Библиотека</a></span>
+              <span><a href="">Отправка</a></span>
             </div>
           </section>
           <section class="right-header-cont header-cont ">
             <div style="justify-content: flex-end;" class="right-box-flex box-flexes non-logo-box-flex side-box-flex">
-              <span>Вход</span>
-              <span>Регистрация</span>
+              <span><a href="sign-in.html">Вход</a></span>
+              <span><a href="registration.php">Регистрация</a></span>
             </div>
           </section>
         </div>
       </header>
     </div>
+    
     <div class="contents">
       <div class="cont-half1">
         <div class="cont-half1-flex">
           <div style="width: fit-content;" class="half1-half1">
-            <div>Safethrow — новый <br> сервис для хранения данных</div>
+            <div style="font-weight: 500;">Safethrow — новый <br> сервис для хранения данных</div>
           </div>
           <div style="width: fit-content;" class="half1-half2">
             <div class="h1h2-flex">

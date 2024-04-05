@@ -1,3 +1,9 @@
+* {
+    font-family: Inter, sans-serif;
+    font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal; 
+}
 .header-main {
   position: fixed;
   flex: none;
@@ -47,6 +53,15 @@
 }
 .side-box-flex {
   width: 200px;
+}
+.right-box-flex a, .center-box-flex a {
+  text-decoration: none;
+  color: rgb(226, 226, 226);
+  transition: .3s;
+}
+.right-box-flex a:hover, .center-box-flex a:hover {
+  text-decoration: none;
+  color: white;
 }
 
 .contents {
