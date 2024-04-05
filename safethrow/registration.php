@@ -35,6 +35,7 @@
                                     <span>Это название Вашего аккаунта в системе Safethrow. С его помощью осуществляется вход после регистрации.<br><br>Рекомендуемая длина до 20 символов.</span>
                                 </div>
                                 <!-- <div class="error-dot"></div> -->
+                                <!-- sobaka -->
                                 
                             </div>
                             <div class="reg-pass-box reg-boxes reg-box2" style="position: absolute; width: 100%; opacity: 0;">
