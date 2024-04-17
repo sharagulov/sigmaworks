@@ -18,6 +18,8 @@ let regBox2 = document.getElementsByClassName("reg-box2");
 let regBox = document.getElementsByClassName("reg-boxes");
 let regBoxInput = document.getElementsByClassName("reg-box");
 
+let errorDots = document.getElementsByClassName("error-dot")
+
 let guideBox = document.getElementById("reg-guide");
 let dots = document.getElementsByClassName("dot");
 let dot1 = document.getElementById("dot1");
@@ -98,7 +100,7 @@ function check() {
 function inputCheck() {
     for(let index = 0; index < regBoxInput.length; index++) {
         if(regBoxInput[index].value === "") {
-            alert(`пустое ${regBoxInput[index].id}`);
+            errorDots[index].style.display = 'block';
         }
     }
 }

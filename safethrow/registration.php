@@ -34,7 +34,7 @@
                                 <div class="reg-hint1 reg-hint">
                                     <span>Это название Вашего аккаунта в системе Safethrow. С его помощью осуществляется вход после регистрации.<br><br>Рекомендуемая длина до 20 символов.</span>
                                 </div>
-                                <!-- <div class="error-dot"></div> -->
+                                <div class="error-dot"></div>
                                 
                             </div>
                             <div class="reg-pass-box reg-boxes reg-box2" style="position: absolute; width: 100%; opacity: 0;">
@@ -44,6 +44,7 @@
                                 <div class="reg-hint1 reg-hint">
                                     <span>Пароль для защиты аккаунта. Он будет храниться на сервере в виде необратимого набора сгенерированных символов, мы гарантируем его приватность.<br><br>Рекомендуется использование заглавных и строчных латинских букв, а также цифр и специальных символов.</span>
                                 </div>
+                                <div class="error-dot"></div>
                             </div>
                             <div class="reg-mail-box reg-boxes reg-box1" id="reg-boxes">
                                 <input class="reg-input-area reg-box" id="reg-mail" type="text" autocomplete="off" required>
@@ -52,10 +53,12 @@
                                 <div class="reg-hint1 reg-hint">
                                     <span>Адрес почты Вашей компании, на который вы предпочитаете получить письмо для верификации аккаунта. Также на него будут отправляться уведомления и рассылки.</span>
                                 </div>
+                                <div class="error-dot"></div>
                             </div>
                             <div class="reg-repass-box reg-boxes reg-box2"  style="position: absolute; width: 100%; top: 70px; opacity: 0;">
                                 <input class="reg-input-area reg-box" id="reg-repass" type="text" autocomplete="off" required>
                                 <label class="reg-labels" id="inputLabel4" for="reg-repass">Повтор пароля</label>
+                                <div class="error-dot"></div>
                             </div>
                             <div class="reg-name-box reg-boxes reg-box1">
                                 <input class="reg-input-area reg-box" id="reg-name" type="text" autocomplete="off" required>
@@ -64,6 +67,7 @@
                                 <div class="reg-hint1 reg-hint">
                                     <span>Второе имя Вашего аккаунта, видимое другими пользователями. Оно будет отображаться в личном кабинете.<br><br> Рекомендуемая длина до 20 символов.</span>
                                 </div>
+                                <div class="error-dot"></div>
                             </div>
                             <div class="reg-ogrn-box reg-boxes reg-box2" style="position: absolute; width: 100%; top: 130px; opacity: 0;">
                                 <input class="reg-input-area reg-box" id="reg-ogrn" type="text" autocomplete="off" required>
@@ -72,6 +76,7 @@
                                 <div class="reg-hint1 reg-hint">
                                     <span>Точные данные по идентификации юридического лица.</span>
                                 </div>
+                                <div class="error-dot"></div>
                             </div>
                             <div style="opacity: 0;" class="reg-checkbox-flex" id="reg-checkbox-flex">
                                 <input style="position: relative; top: -6px;" id="reg-blank-agree" type="checkbox"></input>
