@@ -139,6 +139,9 @@
      opacity: 0;
  }
 
+ .reg-hint1-check{
+    color: var(--errorRed);
+ }
  @media (min-width: 980px) {
      .reg-hint {
          position: absolute;
@@ -238,5 +241,5 @@
     background-color: var(--errorRed);
     border-radius: 50%;
     margin-left: 284px;
-    display: block;
+    display: none;
 }

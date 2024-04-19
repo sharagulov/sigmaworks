@@ -32,9 +32,10 @@
                                 <label class="reg-labels" id="inputLabel1" for="reg-login">Логин</label>
                                 <img draggable="false" class="reg-input-help" src="/img/help-icon.png" alt="">
                                 <div class="reg-hint1 reg-hint">
-                                    <span>Это название Вашего аккаунта в системе Safethrow. С его помощью осуществляется вход после регистрации.<br><br>Рекомендуемая длина до 20 символов.</span>
+                                    <span>Это название Вашего аккаунта в системе Safethrow. С его помощью осуществляется вход после регистрации.<br><br>Рекомендуемая длина от 5 до 20 символов.</span>
                                 </div>
-                                <div class="error-dot"></div>
+
+                                <div class="error-dot" id="e-d-userName"></div>
                                 
                             </div>
                             <div class="reg-pass-box reg-boxes reg-box2" style="position: absolute; width: 100%; opacity: 0;">
@@ -43,8 +44,12 @@
                                 <img draggable="false" class="reg-input-help" src="/img/help-icon.png" alt="">
                                 <div class="reg-hint1 reg-hint">
                                     <span>Пароль для защиты аккаунта. Он будет храниться на сервере в виде необратимого набора сгенерированных символов, мы гарантируем его приватность.<br><br>Рекомендуется использование заглавных и строчных латинских букв, а также цифр и специальных символов.</span>
+                                    <span class="reg-hint1-check"> <br><br> <span id="upper-letter"> Минимум одна заглавная буква</span> <br> <br> <span id="spec-symbol">Минимум один специальный символ</span> <br> <br><span id="lower-letter"> Минимум одна строчная буква</span> <br> <br> <span id="number-symbol">Минимум одна цифра</span> <br><br><span id="pass-length"> Длинна не менее 8 символов</span></span>
                                 </div>
-                                <div class="error-dot"></div>
+                                <div class="hint-error">
+                                    <span></span>
+                                </div>
+                                <div class="error-dot" id="e-d-pass"></div>
                             </div>
                             <div class="reg-mail-box reg-boxes reg-box1" id="reg-boxes">
                                 <input class="reg-input-area reg-box" id="reg-mail" type="text" autocomplete="off" required>
@@ -53,12 +58,12 @@
                                 <div class="reg-hint1 reg-hint">
                                     <span>Адрес почты Вашей компании, на который вы предпочитаете получить письмо для верификации аккаунта. Также на него будут отправляться уведомления и рассылки.</span>
                                 </div>
-                                <div class="error-dot"></div>
+                                <div class="error-dot" id="e-d-email"></div>
                             </div>
                             <div class="reg-repass-box reg-boxes reg-box2"  style="position: absolute; width: 100%; top: 70px; opacity: 0;">
                                 <input class="reg-input-area reg-box" id="reg-repass" type="text" autocomplete="off" required>
                                 <label class="reg-labels" id="inputLabel4" for="reg-repass">Повтор пароля</label>
-                                <div class="error-dot"></div>
+                                <div class="error-dot" id="e-d-repass"></div>
                             </div>
                             <div class="reg-name-box reg-boxes reg-box1">
                                 <input class="reg-input-area reg-box" id="reg-name" type="text" autocomplete="off" required>
@@ -85,8 +90,8 @@
                             <div class="reg-blank-buttons-flex" id="reg-blank-buttons-flex">
                                 <button style="opacity: .5;" onclick="prevAction(), check()" type="button" class="reg-blank-button-prev" id="reg-blank-button-prev">Назад</button>
                                 <button style="position: absolute; width: 46.25%; left: 0; opacity: 0; z-index: -1;" onclick="prevAction(), check()" type="button" class="reg-blank-button-prev2" id="reg-blank-button-prev2">Назад</button>
-                                <button style="opacity: 1;" onclick="nextAction(), check()" type="button" class="reg-blank-button-next" id="reg-blank-button-next">Далее</button>
-                                <button onclick="inputCheck()" style="position: absolute; width: 46.25%; right: 0; opacity: 0; z-index: -1;" type="button" class="reg-blank-button-submit" id="reg-blank-button-submit">Отправить</button>
+                                <button style="opacity: 1;" onclick="nextAction(), check(), validateEmail(), correctUserName()" type="button" class="reg-blank-button-next" id="reg-blank-button-next">Далее</button>
+                                <button onclick="inputCheck(), correctPass(), repasCheck()" style="position: absolute; width: 46.25%; right: 0; opacity: 0; z-index: -1;" type="button" class="reg-blank-button-submit" id="reg-blank-button-submit">Отправить</button>
                             </div>
                         </form>
                         <div id="reg-blank-already" class="reg-blank-already"><span>Уже есть аккаунт? <a style="text-decoration: none; color: #594f9b;" href="">Войти</a></span></div>
@@ -102,6 +107,9 @@
             </div>
         </div>
     </div>
-    <script src="./js/registration.js"></script>
+    <!-- <script src="./js/registration.js"></script> -->
+    <script>
+        <?php include './js/registration.js'; ?>
+    </script>
 </body>
 </html>
