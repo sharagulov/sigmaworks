@@ -14,7 +14,7 @@ export default function New() {
   console.log(session);
 
   return (
-    <div className="w-screen bgnd h-screen" >
+    <div className="w-screen  bgnd h-screen" >
       <div className="absolute w-full h-full mwbackground"></div>
       <header className=" transition-all content-center header absolute w-full h-[70px] bg-black backdrop-blur-xl rounded-lg shadow">
         <div className="px-[50px]">
@@ -44,7 +44,7 @@ export default function New() {
           </div>
         </div>
       </header>
-      <div className="flex text-black/80 justify-center text-center">
+      <div className="flex font-black text-black/80 justify-center text-center">
         <div className="mt-[15vh]">
           <div className="flex justify-center opacity-80 z-10 bg-white/10 p-[20px] backdrop-blur-lg rounded-xl shadow-xl">
             <Image
@@ -57,7 +57,7 @@ export default function New() {
           <p className=" lg:text-5xl md:text-3xl sm:text-xl mt-6 leading-tight font-bold">инновационный облачный сервис</p>
         </div>
       </div>
-      <div className="flex justify-center ">
+      <div className="flex font-black justify-center ">
         <div className="w-[90%] min-h-[2000px] mt-[5%] mwsh rounded-[70px] z-10 p-[70px] text-2xl bg-background/80">
           <div className="flex flex-col items-center mt-[200px]">
             <div className="flex text-center flex-col max-w-[50%] gap-10 ">
