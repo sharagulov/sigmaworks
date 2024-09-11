@@ -2,6 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from 'react';
+import AuthBlock from '../components/AuthBlock'
+import { toast } from "sonner"
 
 import axios from 'axios';
 import {
@@ -16,7 +18,6 @@ import { Input } from './ui/input';
 import { Checkbox } from './ui/checkbox';
 import { Label } from './ui/label';
 import { Button } from './ui/button';
-import Image from 'next/image';
 import { CaretLeftIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 
@@ -98,27 +99,36 @@ export default function FormComponent() {
                   </div>
 
                   <div className="flex items-center justify-center space-x-2 mt-3">
+
+
                     <Checkbox className="" id="terms" />
                     <Label htmlFor="terms">Я соглашаюсь на всё</Label>
                   </div>
+
                 </div>
               </CardContent>
               <CardFooter className="flex justify-center">
                 <div className="mr-[270px] mt-[3px] absolute ">
-                  <button type="button" className="" onClick={() => router.push('/new')} variant="outline">
+                  <button type="button" className="" onClick={() => router.back()} variant="outline">
                     <CaretLeftIcon className="w-[40px] transition-colors  text-black/50 hover:text-black/80 h-[40px]"></CaretLeftIcon>
                   </button>
                 </div>
-                <Button type='submit'>Регистрация</Button>
+                <Button onClick={() => { (message == "" ? {} : router.push('/new/registration/success')) }} type='submit'>Регистрация</Button>
               </CardFooter>
             </form>
           </Card>
+        </div>
+      </div>
+      <div className="flex justify-center">
+        <div className="w-[350px] ">
+          <AuthBlock />
         </div>
       </div>
       <div className='mt-7 flex justify-center'>
         <span className='text-sm font-medium'>Уже есть аккаунт?
           <Link className="text-accent hover:text-accent-hover" href="/api/auth/signin"> Войти</Link>
         </span>
+
       </div>
     </div >
   );

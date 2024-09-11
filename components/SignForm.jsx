@@ -1,7 +1,6 @@
 'use client';
-
 import { useRouter } from "next/navigation";
-import { useState } from 'react';
+import AuthBlock from '../components/AuthBlock'
 
 import {
   Card,
@@ -20,25 +19,18 @@ import { signIn } from "next-auth/react";
 
 
 export default function FormComponent() {
-
   const router = useRouter()
-
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [pass, setPass] = useState('');
-  const [message, setMessage] = useState('');
-
   const handleSubmit = async (e) => {
 
     e.preventDefault();
     const formData = new FormData(e.currentTarget)
     const res = await signIn('credentials', {
-      userid:formData.get('name'),
-      password:formData.get('pass'),
+      userid: formData.get('name'),
+      password: formData.get('pass'),
       redirect: false,
     });
 
-    if(res && !res.error) {
+    if (res && !res.error) {
       router.push('/profile')
     }
     else {
@@ -59,7 +51,7 @@ export default function FormComponent() {
             </CardHeader>
             <form onSubmit={handleSubmit}>
               <CardContent>
-                <div className="grid w-full text-right transition-all items-center gap-3">
+                <div className="grid w-full transition-all text-center items-center gap-3">
                   <div className="flex flex-col space-y-1.5">
                     <Input
                       id="name"
@@ -67,7 +59,6 @@ export default function FormComponent() {
                       placeholder="Имя пользователя"
                       required
                     />
-                    <Label className="text-destructive text-[10px]" htmlFor="name">{(message.includes("name")) ? "Имя занято" : ""}</Label>
                   </div>
 
                   <div className="flex flex-col space-y-1.5">
@@ -84,7 +75,7 @@ export default function FormComponent() {
               </CardContent>
               <CardFooter className="flex justify-center">
                 <div className="mr-[270px] mt-[3px] absolute ">
-                  <button type="button" className="" onClick={() => router.push('/new')} variant="outline">
+                  <button type="button" className="" onClick={() => router.back()} variant="outline">
                     <CaretLeftIcon className="w-[40px] transition-colors  text-black/50 hover:text-black/80 h-[40px]"></CaretLeftIcon>
                   </button>
                 </div>
@@ -92,6 +83,11 @@ export default function FormComponent() {
               </CardFooter>
             </form>
           </Card>
+        </div>
+      </div>
+      <div className="flex justify-center">
+        <div className="w-[350px] ">
+          <AuthBlock />
         </div>
       </div>
     </div >

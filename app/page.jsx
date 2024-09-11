@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 
-import Header from '../../components/Header'
+import Header from '../components/Header'
 
 
 export default function New() {
@@ -28,7 +28,7 @@ export default function New() {
         </div>
       </div>
       <div className="flex font-black justify-center ">
-        <div className="w-[90%] min-h-[2000px] mt-[5%] mwsh rounded-[70px] z-10 p-[70px] text-2xl bg-background/80">
+        <div className="w-[90%] min-h-[2000px] mt-[5%] mwsh rounded-[70px] z-10 p-[70px] text-2xl bg-background">
           <div className="flex flex-col items-center mt-[200px]">
             <div className="flex text-center flex-col max-w-[50%] gap-10 ">
               <p className="lg:text-5xl md:text-3xl sm:text-xl ">Кому подойдет эта платформа?</p>

@@ -4,6 +4,7 @@ import axios from "axios";
 import type { AuthOptions, User } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import GithubProvider from "next-auth/providers/github"
+import YandexProvider from "next-auth/providers/yandex"
 import { useState } from "react";
 import * as crypto from 'crypto';
 
@@ -37,6 +38,10 @@ export async function handleSubmit(name) {
 
 export const authConfig: AuthOptions = {
   providers: [
+    YandexProvider({
+      clientId: process.env.YANDEX_CLIENT_ID,
+      clientSecret: process.env.YANDEX_SECRET,
+    }),
     GithubProvider({
       clientId: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_SECRET,
