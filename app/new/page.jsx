@@ -3,47 +3,17 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import react from "react";
-import { useSession, signOut } from 'next-auth/react'
-import Link from "next/link";
+
+import Header from '../../components/Header'
 
 
 export default function New() {
   const router = useRouter()
-  const session = useSession();
-  console.log(session);
 
   return (
-    <div className="w-screen  bgnd h-screen" >
+    <div className="w-screen bgnd h-screen" >
       <div className="absolute w-full h-full mwbackground"></div>
-      <header className=" transition-all content-center header absolute w-full h-[70px] bg-black backdrop-blur-xl rounded-lg shadow">
-        <div className="px-[50px]">
-          <div className="flex text-white content-center justify-between w-full">
-            <div className="content-center">
-              <Image
-                src="/img/safethrow.png"
-                width={100}
-                height={9}
-                alt="LOGO"
-              />
-            </div>
-
-              {session?.data
-                ?
-                <div className="flex gap-10">
-                  <Button variant="link" className="text-sm" href="/profile">{session?.data?.user.name}</Button>
-                  <Button href="api/auth/signin" className="" variant={"ghost"} onClick={() => signOut({ callbackUrl: '/new' })} >Выйти</Button>
-                </div>
-                :
-                <div className="flex gap-10">
-                  <Button className="" onClick={() => router.push('/api/auth/signin')} variant={"ghost"} >Войти</Button>
-                  <Button type="button" onClick={() => router.push('/new/registration')} variant={"outline"} >Создать аккаунт</Button>
-                </div>
-              }
-
-          </div>
-        </div>
-      </header>
+      <Header/>
       <div className="flex font-black text-black/80 justify-center text-center">
         <div className="mt-[15vh]">
           <div className="flex justify-center opacity-80 z-10 bg-white/10 p-[20px] backdrop-blur-lg rounded-xl shadow-xl">
