@@ -2,6 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from 'react';
+import AuthBlock from '../components/AuthBlock'
+import { toast } from "sonner"
 
 import axios from 'axios';
 import {
@@ -16,9 +18,8 @@ import { Input } from './ui/input';
 import { Checkbox } from './ui/checkbox';
 import { Label } from './ui/label';
 import { Button } from './ui/button';
-import Image from 'next/image';
-import { ArrowLeft } from "lucide-react";
 import { CaretLeftIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
 
 
 export default function FormComponent() {
@@ -41,25 +42,16 @@ export default function FormComponent() {
       setMessage('Произошла ошибка при отправке данных');
     }
   };
-  
+
   return (
-    <div className=" w-screen">
-      <div className="flex h-screen justify-center">
+    <div className="w-screen h-screen content-center">
+      <div className="flex justify-center">
         <div className="content-center">
           <Card className="w-[350px]">
             <CardHeader>
-              <div className="content-center mb-5 justify-center flex bg-primary text-primary-foreground transition-colors p-[10px] shadow rounded-md hover:bg-primary-hover">
-
-                <Image
-                  src="/img/safethrow.png"
-                  width={150}
-                  height={13.5}
-                  alt="LOGO"
-                />
-              </div>
-              <div className="text-center">
+              <div className="text-center p-[10px] shadow rounded-xl">
                 <CardTitle>Регистрация</CardTitle>
-                <CardDescription>Создайте новый аккаунт</CardDescription>
+                <CardDescription className="mt-1">Создайте новый аккаунт</CardDescription>
               </div>
             </CardHeader>
             <form onSubmit={handleSubmit}>
@@ -107,22 +99,36 @@ export default function FormComponent() {
                   </div>
 
                   <div className="flex items-center justify-center space-x-2 mt-3">
+
+
                     <Checkbox className="" id="terms" />
                     <Label htmlFor="terms">Я соглашаюсь на всё</Label>
                   </div>
+
                 </div>
               </CardContent>
               <CardFooter className="flex justify-center">
                 <div className="mr-[270px] mt-[3px] absolute ">
-                  <button type="button" className="" onClick={() => router.push('/new')} variant="outline">
+                  <button type="button" className="" onClick={() => router.back()} variant="outline">
                     <CaretLeftIcon className="w-[40px] transition-colors  text-black/50 hover:text-black/80 h-[40px]"></CaretLeftIcon>
                   </button>
                 </div>
-                <Button type='submit'>Регистрация</Button>
+                <Button onClick={() => { (message == "" ? {} : router.push('/new/registration/success')) }} type='submit'>Регистрация</Button>
               </CardFooter>
             </form>
           </Card>
         </div>
+      </div>
+      <div className="flex justify-center">
+        <div className="w-[350px] ">
+          <AuthBlock />
+        </div>
+      </div>
+      <div className='mt-7 flex justify-center'>
+        <span className='text-sm font-medium'>Уже есть аккаунт?
+          <Link className="text-accent hover:text-accent-hover" href="/api/auth/signin"> Войти</Link>
+        </span>
+
       </div>
     </div >
   );

@@ -1,8 +1,9 @@
-import RegForm from '../../../components/RegForm';
+import RegForm from '@/components/RegForm';
+
 
 export default function Home() {
   return (
-    <div>
+    <div className='overflow-hidden'>
       <RegForm />
     </div>
   );
