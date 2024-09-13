@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from "next/navigation";
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import AuthBlock from '../components/AuthBlock'
 import { toast } from "sonner"
 
@@ -26,20 +26,45 @@ export default function FormComponent() {
 
   const router = useRouter()
 
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
+  const [repass, setRepass] = useState('');
+  const [passerror, setPasserror] = useState(false);
   const [message, setMessage] = useState('');
 
-  const handleSubmit = async (e) => {
 
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/submit', { name, email, pass });
+      const response = await axios.post('/api/submit', { name, email, pass, passerror });
       setMessage(response.data.message);
       console.log(response.data.message);
     } catch (error) {
       setMessage('Произошла ошибка при отправке данных');
+    }
+  };
+
+  const messageRef = useRef('');
+  useEffect(() => {
+    messageRef.current = message;
+  }, [message]);
+
+  const handleRegistrationClick = async () => {
+    await new Promise(resolve => {
+      const checkMessage = () => {
+        if ((JSON.stringify(messageRef.current)).slice(1, -3) === "success") {
+          resolve();
+        } else {
+          setTimeout(checkMessage, 100);
+        }
+      };
+      checkMessage();
+    });
+
+    if ((JSON.stringify(messageRef.current)).slice(1, -3) === "success") {
+      router.push('/new/registration/success');
     }
   };
 
@@ -57,7 +82,7 @@ export default function FormComponent() {
             <form onSubmit={handleSubmit}>
               <CardContent>
                 <div className="grid w-full text-right transition-all items-center gap-3">
-                  <div className="flex flex-col space-y-1.5">
+                  <div className="flex flex-col space-y-1">
                     <Input
                       id="name"
                       name="name"
@@ -67,9 +92,10 @@ export default function FormComponent() {
                       required
                     />
                     <Label className="text-destructive text-[10px]" htmlFor="name">{(message.includes("name")) ? "Имя занято" : ""}</Label>
+                    <Label className="text-destructive text-[10px]" htmlFor="name">{((name.length > 3 && name.length <= 20) || name.length == 0) ? "" : "Длина имени -- от 4 до 20 символов" }</Label>
                   </div>
 
-                  <div className="flex flex-col space-y-1.5">
+                  <div className="flex flex-col space-y-1">
                     <Input
                       id="email"
                       name="email"
@@ -82,7 +108,7 @@ export default function FormComponent() {
                     <Label className="text-destructive text-[10px]" htmlFor="name">{(message.includes("email")) ? "Такой адрес уже используется" : ""}</Label>
                   </div>
 
-                  <div className="flex flex-col space-y-1.5">
+                  <div className="flex flex-col space-y-1">
                     <Input
                       id="pass"
                       name="pass"
@@ -92,15 +118,22 @@ export default function FormComponent() {
                       onChange={(e) => setPass(e.target.value)}
                       required
                     />
+                    <Label className="text-destructive text-[10px]" htmlFor="repass">{((pass.length >= 6 && pass.length <= 25) || pass.length == 0) ? "" : "Длина пароля -- от 6 до 25 символов" }</Label>
                   </div>
 
-                  <div className="flex flex-col space-y-1.5">
-                    <Input id="repass" type="password" placeholder="Повторите пароль" />
+                  <div className="flex flex-col space-y-1">
+                    <Input
+                      id="repass"
+                      name="repass"
+                      type="password"
+                      value={repass}
+                      onChange={(e) => setRepass(e.target.value)}
+                      placeholder="Повторите пароль"
+                      required />
+                    <Label className="text-destructive text-[10px]" htmlFor="repass">{(passerror) ? "Пароли не совпадают" : ""}</Label>
                   </div>
 
                   <div className="flex items-center justify-center space-x-2 mt-3">
-
-
                     <Checkbox className="" id="terms" />
                     <Label htmlFor="terms">Я соглашаюсь на всё</Label>
                   </div>
@@ -113,7 +146,7 @@ export default function FormComponent() {
                     <CaretLeftIcon className="w-[40px] transition-colors  text-black/50 hover:text-black/80 h-[40px]"></CaretLeftIcon>
                   </button>
                 </div>
-                <Button onClick={() => { (message == "" ? {} : router.push('/new/registration/success')) }} type='submit'>Регистрация</Button>
+                <Button onClick={() => { handleRegistrationClick(); setPasserror(pass !== repass) }} type='submit'>Регистрация</Button>
               </CardFooter>
             </form>
           </Card>
