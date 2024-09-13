@@ -16,9 +16,13 @@ import { Label } from './ui/label';
 import { Button } from './ui/button';
 import { CaretLeftIcon } from "@radix-ui/react-icons";
 import { signIn } from "next-auth/react";
+import { useState } from "react";
 
 
 export default function FormComponent() {
+
+  const [error, setError] = useState('');
+
   const router = useRouter()
   const handleSubmit = async (e) => {
 
@@ -34,7 +38,7 @@ export default function FormComponent() {
       router.push('/profile')
     }
     else {
-      console.log(res)
+      setError("Неверный логин или пароль")
     }
   };
 
@@ -71,6 +75,9 @@ export default function FormComponent() {
                     />
                   </div>
 
+                  <div>
+                  <Label className="text-destructive text-[10px]">{error}</Label>
+                  </div>
                 </div>
               </CardContent>
               <CardFooter className="flex justify-center">

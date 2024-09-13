@@ -9,9 +9,9 @@ const execAsync = promisify(exec);
 
 export async function POST(request) {
   const body = await request.json();
-  const { name, email, pass } = body;
+  const { name, email, pass, passerror } = body;
 
-  const command = `node dist/userCheck.js --userid ${name} --email ${email} --password ${crypto.createHash('sha256').update(pass).digest('hex')}`;
+  const command = `node dist/userCheck.js --userid ${name} --email ${email} --password ${crypto.createHash('sha256').update(pass).digest('hex')} --passerror ${passerror}`;
 
   try {
     const { stdout, stderr } = await execAsync(command, { cwd: directory });
