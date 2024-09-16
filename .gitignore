@@ -34,3 +34,19 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# blockchain
+/_blockchain/bin
+/_blockchain/builders
+/_blockchain/ci
+/_blockchain/config
+/_blockchain/full-stack-asset-transfer-guide
+/_blockchain/hardware-security-module
+/_blockchain/node_modules
+/_blockchain/off_chain_data
+/_blockchain/test-application
+/_blockchain/token-erc-20
+/_blockchain/token-erc-721
+/_blockchain/token-erc-1155
+/_blockchain/token-erc-sdk
+/_blockchain/token-erc-utxo

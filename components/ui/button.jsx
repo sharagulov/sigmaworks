@@ -20,6 +20,7 @@ const buttonVariants = cva(
         secondary:
           "bg-secondary text-secondary-foreground shadow-sm ",
         ghost: "hover:bg-accent ",
+        ighost: "hover:bg-accent text-base text-black hover:text-white",
         link: "underline-offset-4 hover:underline",
       },
       size: {
