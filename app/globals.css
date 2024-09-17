@@ -8,13 +8,22 @@
   }
 }
 
+.anima {
+  opacity: 0;
+  animation: ani 1s forwards;
+}
+
+@keyframes ani {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
 .bgnd {
   margin: 0;
   background: radial-gradient(circle at top left, #cf758c, #e6e6e6, #6a82fb);
   background-size: 300% 300%;
   animation: gradient 30s ease infinite;
 }
-
 
 .mwbackground {
   background: linear-gradient( transparent, transparent, #e6e6e6);
