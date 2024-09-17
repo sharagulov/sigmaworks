@@ -18,7 +18,6 @@ interface Arguments {
   filename: string;
   extension: string;
   hash: string;
-  [x: string]: unknown;
 }
 
 const channelName = envOrDefault('CHANNEL_NAME', 'fileschannel');
@@ -33,29 +32,23 @@ const peerEndpoint = envOrDefault('PEER_ENDPOINT', 'localhost:7051');
 const peerHostAlias = envOrDefault('PEER_HOST_ALIAS', 'peer0.org1.example.com');
 
 const argv = yargs(hideBin(process.argv))
-  .option('owner', {
-    alias: 'o',
+  .option('filename', {
     type: 'string',
-    description: 'owner',
     demandOption: true
   })
-  .option('filename', {
-    alias: 'f',
+  .option('owner', {
     type: 'string',
-    description: 'filename'
+    demandOption: true
   })
   .option('extension', {
-    alias: 'e',
     type: 'string',
-    description: 'extension'
+    demandOption: true
   })
   .option('hash', {
-    alias: 'h',
     type: 'string',
-    description: 'hash'
+    demandOption: true
   })
-  .help()
-  .alias('help', 'h')
+  .strict()
   .parseSync() as Arguments;
 
 async function main(): Promise<void> {
@@ -134,12 +127,21 @@ async function newSigner(): Promise<Signer> {
 
 async function createAsset(contract: Contract): Promise<void> {
 
+  const hash = String(argv.hash);
+
+  console.log('Аргументы:', {
+    filename: argv.filename,
+    owner: argv.owner,
+    extension: argv.extension,
+    hash: hash
+  });
+
   await contract.submitTransaction(
     'CreateAsset',
-    argv.owner, // username
-    argv.filename, // email
-    argv.extension, // password
-    argv.hash, // owner
+    argv.filename + "_" + (Math.floor(100000 + Math.random() * 900000)).toString(), // 
+    argv.owner, // 
+    argv.extension, // 
+    hash, // 
   );
 
   console.log('--> Успешно');

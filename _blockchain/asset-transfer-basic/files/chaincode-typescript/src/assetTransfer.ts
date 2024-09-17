@@ -98,9 +98,11 @@ export class AssetTransferContract extends Contract {
     const allResults = [];
     const iterator = await ctx.stub.getStateByRange('', '');
     let result = await iterator.next();
+
     while (!result.done) {
       const strValue = Buffer.from(result.value.value.toString()).toString('utf8');
       let record;
+
       try {
         record = JSON.parse(strValue) as Asset;
       } catch (err) {
@@ -112,5 +114,33 @@ export class AssetTransferContract extends Contract {
     }
     return JSON.stringify(allResults);
   }
+
+  @Transaction(false)
+@Returns('string')
+public async GetAssetsByOwner(ctx: Context, owner: string): Promise<string> {
+  const allResults = [];
+  const iterator = await ctx.stub.getStateByRange('', '');
+  let result = await iterator.next();
+
+  while (!result.done) {
+    const strValue = Buffer.from(result.value.value.toString()).toString('utf8');
+    let record;
+    
+    try {
+      record = JSON.parse(strValue) as Asset;
+      
+      // Проверяем, соответствует ли владелец актива входному аргументу
+      if (record.Owner === owner) {
+        allResults.push(record);
+      }
+    } catch (err) {
+      console.log('Ошибка при разборе записи актива:', err);
+    }
+    
+    result = await iterator.next();
+  }
+
+  return JSON.stringify(allResults);
+}
 
 }

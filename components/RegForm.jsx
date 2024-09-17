@@ -92,7 +92,7 @@ export default function FormComponent() {
                       required
                     />
                     <Label className="text-destructive text-[10px]" htmlFor="name">{(message.includes("name")) ? "Имя занято" : ""}</Label>
-                    <Label className="text-destructive text-[10px]" htmlFor="name">{((name.length > 3 && name.length <= 20) || name.length == 0) ? "" : "Длина имени -- от 4 до 20 символов" }</Label>
+                    <Label className="text-destructive text-[10px]" htmlFor="name">{((name.length > 3 && name.length <= 20) || name.length == 0) ? "" : "Длина имени -- от 4 до 20 символов"}</Label>
                   </div>
 
                   <div className="flex flex-col space-y-1">
@@ -118,7 +118,7 @@ export default function FormComponent() {
                       onChange={(e) => setPass(e.target.value)}
                       required
                     />
-                    <Label className="text-destructive text-[10px]" htmlFor="repass">{((pass.length >= 6 && pass.length <= 25) || pass.length == 0) ? "" : "Длина пароля -- от 6 до 25 символов" }</Label>
+                    <Label className="text-destructive text-[10px]" htmlFor="repass">{((pass.length >= 6 && pass.length <= 25) || pass.length == 0) ? "" : "Длина пароля -- от 6 до 25 символов"}</Label>
                   </div>
 
                   <div className="flex flex-col space-y-1">

@@ -1,10 +1,82 @@
 "use client"
+import { useSession } from 'next-auth/react';
+import { useEffect, useRef, useState } from 'react';
+import { authConfig } from '@/configs/auth'
+import axios from 'axios';
+import Image from 'next/image';
+
 export default function FilesBar() {
+  const session = useSession(authConfig);
+
+  const [owner, setOwner] = useState('');
+  const [files, setFiles] = useState(1);
+
+  useEffect(() => {
+    if (session?.data?.user.name) {
+      setOwner(session?.data?.user.name);
+    }
+  }, [session]);
+
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.post('/api/loadfiles', { owner });
+        setMessage(response.data.message);
+        console.log(response.data.message);
+      } catch (error) {
+        setMessage('Произошла ошибка при отправке данных');
+        console.error('Ошибка:', error);
+      }
+    };
+
+    // Вызываем функцию сразу при монтировании компонента
+    fetchData();
+
+    // Устанавливаем интервал для вызова функции каждую секунду
+    const intervalId = setInterval(fetchData, 5000);
+
+    // Очистка интервала при размонтировании компонента
+    return () => clearInterval(intervalId);
+  }, [owner]);
+
+  const messageRef = useRef('');
+  useEffect(() => {
+    messageRef.current = message;
+  }, [message]);
+
+  const filedivs = Array.from({ length: message.length }, (_, index) => (
+    <div key={index} className='opacity-80 hover:opacity-100 hover:scale-105 duration-500 transition-all '>
+      <div className='anima '>
+        <div className='shadow-lg hover:shadow-xl transition-all duration-500 rounded-xl p-10 z-2 px-8 bg-white/30'>
+          <div className='flex justify-center h-full '>
+            <div className='content-center opacity-60'>
+              <Image
+                src="/img/file.png"
+                width={50}
+                height={50}
+                alt="LOGO"
+              />
+            </div>
+          </div>
+        </div>
+        <div className='text-center sm:text-sm md:text-sm p-1 '>
+          <span>{(JSON.stringify(message[index]?.Filename)).split('_')[0].slice(1)}</span>
+          <span>.</span>
+          <span className='opacity-50'>{(JSON.stringify(message[index]?.Extension)).slice(1, -1)}</span>
+        </div>
+      </div>
+    </div>
+  ));
+
   return (
-    <div className="flex h-screen w-screen p-10 pt-[30px]  z-[-1]">
+    <div className="transition-all flex h-screen w-screen p-10 pt-[30px]  z-[-1]">
       <div className="w-full">
-        <div className=" p-[50px] mwsh rounded-[30px] min-h-[600px] backdrop-blur-lg shadow-xl ">
-          gfshg
+        <div className=" p-[50px] mwsh rounded-[30px] min-h-[600px] backdrop-blur-lg shadow-xl">
+          <div className='grid gap-5 lg:grid-cols-8 lg:grid-rows-3 sm:grid-cols-3 md:grid-cols-5'>
+            {filedivs}
+          </div>
         </div>
       </div>
     </div>
