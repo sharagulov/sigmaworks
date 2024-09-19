@@ -9,7 +9,7 @@ const GitButton = () => {
   const callbackUrl = searchParams.get('callbackUrl') || '/profile';
 
   return (
-    <Button variant="git" className="w-full" onClick={() => signIn('github', { callbackUrl })}>
+    <Button variant="white" className="w-full" onClick={() => signIn('github', { callbackUrl })}>
       <div className="flex items-center gap-2">
         <div className="w-[15px] h-[15px]">
           <Image

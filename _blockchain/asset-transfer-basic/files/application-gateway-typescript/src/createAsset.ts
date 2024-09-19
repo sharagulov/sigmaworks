@@ -126,24 +126,13 @@ async function newSigner(): Promise<Signer> {
 }
 
 async function createAsset(contract: Contract): Promise<void> {
-
-  const hash = String(argv.hash);
-
-  console.log('Аргументы:', {
-    filename: argv.filename,
-    owner: argv.owner,
-    extension: argv.extension,
-    hash: hash
-  });
-
   await contract.submitTransaction(
     'CreateAsset',
     argv.filename + "_" + (Math.floor(100000 + Math.random() * 900000)).toString(), // 
-    argv.owner, // 
-    argv.extension, // 
-    hash, // 
+    argv.owner,
+    argv.extension,
+    argv.hash,
   );
-
   console.log('--> Успешно');
 }
 
