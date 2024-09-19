@@ -5,6 +5,12 @@ import { authConfig } from '@/configs/auth'
 import axios from 'axios';
 import Image from 'next/image';
 
+import { Input } from './ui/input';
+import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
+import { Button } from './ui/button';
+
+import AddDialog from '@/components/AddDialog'
+
 export default function FilesBar() {
   const session = useSession(authConfig);
 
@@ -49,7 +55,7 @@ export default function FilesBar() {
   const filedivs = Array.from({ length: message.length }, (_, index) => (
     <div key={index} className='opacity-80 hover:opacity-100 hover:scale-105 duration-500 transition-all '>
       <div className='anima '>
-        <div className='shadow-lg hover:shadow-xl transition-all duration-500 rounded-xl p-10 z-2 px-8 bg-white/30'>
+        <div className='shadow-lg hover:shadow-xl transition-all duration-500 rounded-xl p-10 z-2 px-8 bg-accent-light'>
           <div className='flex justify-center h-full '>
             <div className='content-center opacity-60'>
               <Image
@@ -73,7 +79,28 @@ export default function FilesBar() {
   return (
     <div className="transition-all flex h-screen w-screen p-10 pt-[30px]  z-[-1]">
       <div className="w-full">
-        <div className=" p-[50px] mwsh rounded-[30px] min-h-[600px] backdrop-blur-lg shadow-xl">
+        <div className=" p-[50px] rounded-[30px] min-h-[600px] backdrop-blur-lg shadow-xl">
+          <div className='flex justify-between text-center mb-5'>
+            <div className='flex gap-5'>
+              <div className='flex gap-2'>
+                <div className='content-center'>
+                  <MagnifyingGlassIcon />
+                </div>
+                <Input
+                  id="search"
+                  name="search"
+                  type="text"
+                  placeholder="Поиск"
+                //value={search}
+                />
+              </div>
+              <AddDialog/>
+              
+            </div>
+            <div className='content-center'>
+              <span className=''>Всего файлов: {message.length}</span>
+            </div>
+          </div>
           <div className='grid gap-5 lg:grid-cols-8 lg:grid-rows-3 sm:grid-cols-3 md:grid-cols-5'>
             {filedivs}
           </div>

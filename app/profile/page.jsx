@@ -20,8 +20,8 @@ export default function Profile() {
   return (
     <div className="w-screen h-screen" >
       <Header />
-      <div className="flex w-full  justify-center">
-        <div className=" mt-[90px]  shadow-xl transition-all rounded-[30px] z-2 px-[8px]  bg-background">
+      <div className="flex gap-10 w-full justify-center">
+        <div className=" mt-[90px]  shadow-xl transition-all rounded-[30px] z-2 px-[8px]">
           <div className="flex gap-3 mt-3 justify-center">
             <div className="text-center text-lg">{username}</div>
             <div className="content-center">
