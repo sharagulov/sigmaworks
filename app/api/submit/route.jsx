@@ -11,7 +11,7 @@ export async function POST(request) {
   const { name, email, pass, passerror } = body;
 
   const directory = "_blockchain/asset-transfer-basic/user/application-gateway-typescript"
-  const command = `node dist/initLedger.js --userid ${name} --email ${email} --password ${crypto.createHash('sha256').update(pass).digest('hex')} --passerror ${passerror}`;
+  const command = `node dist/userCheck.js --userid ${name} --email ${email} --password ${crypto.createHash('sha256').update(pass).digest('hex')} --passerror ${passerror}`;
 
   try {
     const { stdout, stderr } = await execAsync(command, { cwd: directory });

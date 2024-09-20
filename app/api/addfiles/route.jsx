@@ -1,29 +1,53 @@
 import { NextResponse } from 'next/server';
-const { exec } = require('child_process');
-import { promisify } from 'util';
-
-
-const execAsync = promisify(exec);
+import { spawn } from 'child_process';
+import fs from 'fs/promises';
+import path from 'path';
 
 export async function POST(request) {
   const body = await request.json();
-  const { filename, extension, hash, owner } = body;
+  const { filename, extension, owner, hash } = body;
 
-  const directory = "_blockchain/asset-transfer-basic/files/application-gateway-typescript"
-  const command = `node dist/createAsset.js --owner ${owner} --filename ${filename} --extension ${extension} --hash ${hash}`;
+  const tempFilePath = path.join('F:/study/sigma/nextjs/sth/safethrow/temp', `${filename}_hash.txt`);
+  await fs.writeFile(tempFilePath, hash);
 
-  try {
-    const { stdout, stderr } = await execAsync(command, { cwd: directory });
+  const directory = "_blockchain/asset-transfer-basic/files/application-gateway-typescript";
+  const command = 'node';
+  const args = [
+    'dist/createAsset.js',
+    '--owner', owner,
+    '--filename', filename,
+    '--extension', extension,
+    '--hashfile', tempFilePath
+  ];
 
-    if (stderr) {
-      console.error(`stderr: ${stderr}`);
-      return NextResponse.json({ error: stderr }, { status: 500 });
-    }
+  return new Promise((resolve) => {
+    const process = spawn(command, args, { cwd: directory });
 
+    let stdout = '';
+    let stderr = '';
 
-    return NextResponse.json({ message: stdout });
-  } catch (error) {
-    console.error(`Ошибка: ${error.message}`);
-    return NextResponse.json({ error: error.message }, { status: 500 });
-  }
+    process.stdout.on('data', (data) => {
+      stdout += data.toString();
+    });
+
+    process.stderr.on('data', (data) => {
+      stderr += data.toString();
+    });
+
+    process.on('close', async (code) => {
+      await fs.unlink(tempFilePath);
+
+      if (code !== 0) {
+        console.error(`stderr: ${stderr}`);
+        resolve(NextResponse.json({ error: stderr }, { status: 500 }));
+      } else {
+        resolve(NextResponse.json({ message: stdout }));
+      }
+    });
+
+    process.on('error', (error) => {
+      console.error(`Ошибка: ${error.message}`);
+      resolve(NextResponse.json({ error: error.message }, { status: 500 }));
+    });
+  });
 }

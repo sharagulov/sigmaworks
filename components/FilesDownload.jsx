@@ -108,10 +108,8 @@ function FileEncryptor() {
             </button>
             )} */}
         </div>
-        <form onSubmit={handleSubmit}>
-          <DialogClose>
-            {fileName && <Button type="submit">Добавить</Button>}
-          </DialogClose>
+        <form onSubmit={handleDecrypt}>
+          {fileName && <Button type="submit">Добавить</Button>}
         </form>
       </div>
     </div>
