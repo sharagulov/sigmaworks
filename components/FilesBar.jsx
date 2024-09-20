@@ -5,6 +5,8 @@ import { authConfig } from '@/configs/auth'
 import axios from 'axios';
 import Image from 'next/image';
 
+import ContextCards from '@/components/ContextCards'
+
 import { Input } from './ui/input';
 import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
 import { Button } from './ui/button';
@@ -53,24 +55,28 @@ export default function FilesBar() {
   }, [message]);
 
   const filedivs = Array.from({ length: message.length }, (_, index) => (
-    <div key={index} className='opacity-80 hover:opacity-100 hover:scale-105 duration-500 transition-all '>
-      <div className='anima '>
-        <div className='shadow-lg hover:shadow-xl transition-all duration-500 rounded-xl p-10 z-2 px-8 bg-accent-light'>
-          <div className='flex justify-center h-full '>
-            <div className='content-center opacity-60'>
-              <Image
-                src="/img/file.png"
-                width={50}
-                height={50}
-                alt="LOGO"
-              />
+    <div key={index} className='relative'>
+      <div className='opacity-80 hover:opacity-100 hover:scale-105 duration-500 transition-all '>
+
+        <div className='anima'>
+      <ContextCards />
+          <div className='shadow-lg hover:shadow-xl transition-all duration-500 rounded-xl p-10 z-2 px-8 bg-accent-light'>
+            <div className='flex justify-center h-full '>
+              <div className='content-center opacity-60'>
+                <Image
+                  src="/img/file.png"
+                  width={50}
+                  height={50}
+                  alt="LOGO"
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <div className='text-center sm:text-sm md:text-sm p-1 '>
-          <span>{(JSON.stringify(message[index]?.Filename)).split('_')[0].slice(1)}</span>
-          <span>.</span>
-          <span className='opacity-50'>{(JSON.stringify(message[index]?.Extension)).slice(1, -1)}</span>
+          <div className='text-center sm:text-sm md:text-sm p-1 '>
+            <span>{(JSON.stringify(message[index]?.Filename)).split('_')[0].slice(1)}</span>
+            <span>.</span>
+            <span className='opacity-50'>{(JSON.stringify(message[index]?.Extension)).slice(1, -1)}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -94,8 +100,8 @@ export default function FilesBar() {
                 //value={search}
                 />
               </div>
-              <AddDialog/>
-              
+              <AddDialog />
+
             </div>
             <div className='content-center'>
               <span className=''>Всего файлов: {message.length}</span>

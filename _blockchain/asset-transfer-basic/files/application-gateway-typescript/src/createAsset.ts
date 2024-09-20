@@ -10,14 +10,16 @@ import { hideBin } from 'yargs/helpers';
 import * as grpc from '@grpc/grpc-js';
 import { connect, Contract, Identity, Signer, signers } from '@hyperledger/fabric-gateway';
 import * as crypto from 'crypto';
-import { promises as fs } from 'fs';
+import { promises as fsp } from 'fs';
+import * as fs from 'fs';
 import * as path from 'path';
+
 
 interface Arguments {
   owner: string;
   filename: string;
   extension: string;
-  hash: string;
+  hashfile: string;
 }
 
 const channelName = envOrDefault('CHANNEL_NAME', 'fileschannel');
@@ -44,7 +46,7 @@ const argv = yargs(hideBin(process.argv))
     type: 'string',
     demandOption: true
   })
-  .option('hash', {
+  .option('hashfile', {
     type: 'string',
     demandOption: true
   })
@@ -96,7 +98,7 @@ main().catch((error: unknown) => {
 
 
 async function newGrpcConnection(): Promise<grpc.Client> {
-  const tlsRootCert = await fs.readFile(tlsCertPath);
+  const tlsRootCert = await fsp.readFile(tlsCertPath);
   const tlsCredentials = grpc.credentials.createSsl(tlsRootCert);
   return new grpc.Client(peerEndpoint, tlsCredentials, {
     'grpc.ssl_target_name_override': peerHostAlias,
@@ -105,12 +107,12 @@ async function newGrpcConnection(): Promise<grpc.Client> {
 
 async function newIdentity(): Promise<Identity> {
   const certPath = await getFirstDirFileName(certDirectoryPath);
-  const credentials = await fs.readFile(certPath);
+  const credentials = await fsp.readFile(certPath);
   return { mspId, credentials };
 }
 
 async function getFirstDirFileName(dirPath: string): Promise<string> {
-  const files = await fs.readdir(dirPath);
+  const files = await fsp.readdir(dirPath);
   const file = files[0];
   if (!file) {
     throw new Error(`No files in directory: ${dirPath}`);
@@ -120,18 +122,24 @@ async function getFirstDirFileName(dirPath: string): Promise<string> {
 
 async function newSigner(): Promise<Signer> {
   const keyPath = await getFirstDirFileName(keyDirectoryPath);
-  const privateKeyPem = await fs.readFile(keyPath);
+  const privateKeyPem = await fsp.readFile(keyPath);
   const privateKey = crypto.createPrivateKey(privateKeyPem);
   return signers.newPrivateKeySigner(privateKey);
 }
 
 async function createAsset(contract: Contract): Promise<void> {
+
+  const hashFilePath = argv.hashfile;
+  const hash = fs.readFileSync(hashFilePath, 'utf-8');
+
   await contract.submitTransaction(
     'CreateAsset',
     argv.filename + "_" + (Math.floor(100000 + Math.random() * 900000)).toString(), // 
     argv.owner,
     argv.extension,
-    argv.hash,
+    hash,
+    public,
+    private
   );
   console.log('--> Успешно');
 }
