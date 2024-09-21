@@ -54,15 +54,16 @@ export default function FilesBar() {
     messageRef.current = message;
   }, [message]);
 
+  process.env.FILENAME = message;
+
   const filedivs = Array.from({ length: message.length }, (_, index) => (
     <div key={index} className='relative'>
-      <div className='opacity-80 hover:opacity-100 hover:scale-105 duration-500 transition-all '>
-
-        <div className='anima'>
-      <ContextCards />
+      <div className='opacity-70 hover:opacity-100 transition-all '>
+        <div className='anima '>
+      <ContextCards cmessage={message} cindex={index}/>
           <div className='shadow-lg hover:shadow-xl transition-all duration-500 rounded-xl p-10 z-2 px-8 bg-accent-light'>
-            <div className='flex justify-center h-full '>
-              <div className='content-center opacity-60'>
+            <div className='flex justify-center  h-full '>
+              <div className='content-center  opacity-60'>
                 <Image
                   src="/img/file.png"
                   width={50}

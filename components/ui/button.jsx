@@ -24,6 +24,7 @@ const buttonVariants = cva(
         link: "underline-offset-4 hover:underline",
         white: "text-black/80 shadow hover:shadow-md",
         whiteAction: "text-black/80 shadow hover:shadow-md hover:bg-accent-hover hover:text-white",
+        context: "text-black/80 container",
       },
       size: {
         default: "h-9 px-4 py-2",

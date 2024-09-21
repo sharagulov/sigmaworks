@@ -138,8 +138,6 @@ async function createAsset(contract: Contract): Promise<void> {
     argv.owner,
     argv.extension,
     hash,
-    public,
-    private
   );
   console.log('--> Успешно');
 }

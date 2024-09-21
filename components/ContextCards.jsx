@@ -14,8 +14,7 @@ import {
   ContextMenuTrigger,
 } from "@/components/ui/context-menu"
 import FilesDownload from '@/components/FilesDownload'
-
-export default function ContextCards() {
+export default function ContextCards({ cmessage, cindex }) {
   return (
     <ContextMenu>
       <ContextMenuTrigger className="flex z-10 absolute h-full w-full justify-center">
@@ -24,8 +23,7 @@ export default function ContextCards() {
       </ContextMenuTrigger>
       <ContextMenuContent className="w-64">
         <ContextMenuItem inset>
-          Back
-          <FilesDownload/>
+          <FilesDownload cmessage={cmessage} cindex={cindex} />
           <ContextMenuShortcut>⌘[</ContextMenuShortcut>
         </ContextMenuItem>
         <ContextMenuItem inset disabled>
