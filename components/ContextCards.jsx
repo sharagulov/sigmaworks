@@ -3,6 +3,7 @@ import {
   ContextMenuCheckboxItem,
   ContextMenuContent,
   ContextMenuItem,
+  ContextMenuItemUnsafe,
   ContextMenuLabel,
   ContextMenuRadioGroup,
   ContextMenuRadioItem,
@@ -14,7 +15,10 @@ import {
   ContextMenuTrigger,
 } from "@/components/ui/context-menu"
 import FilesDownload from '@/components/FilesDownload'
-export default function ContextCards({ cmessage, cindex }) {
+import DeleteDialog from '@/components/DeleteDialog'
+import { DownloadIcon, TrashIcon } from "@radix-ui/react-icons"
+
+export default function ContextCards({ cmessage, cindex, cname, cext }) {
   return (
     <ContextMenu>
       <ContextMenuTrigger className="flex z-10 absolute h-full w-full justify-center">
@@ -22,14 +26,17 @@ export default function ContextCards({ cmessage, cindex }) {
         </div>
       </ContextMenuTrigger>
       <ContextMenuContent className="w-64">
-        <ContextMenuItem inset>
+
+        <ContextMenuItem inset disabled={(cmessage ? false : true)} onClick={(e) => e.preventDefault()}>
           <FilesDownload cmessage={cmessage} cindex={cindex} />
-          <ContextMenuShortcut>⌘[</ContextMenuShortcut>
+          <DownloadIcon />
         </ContextMenuItem>
-        <ContextMenuItem inset disabled>
-          Forward
-          <ContextMenuShortcut>⌘]</ContextMenuShortcut>
-        </ContextMenuItem>
+
+        <ContextMenuItemUnsafe inset onClick={(e) => e.preventDefault()}>
+          <DeleteDialog cname={cname} cext={cext} />
+          <TrashIcon />
+        </ContextMenuItemUnsafe>
+
         <ContextMenuItem inset>
           Reload
           <ContextMenuShortcut>⌘R</ContextMenuShortcut>

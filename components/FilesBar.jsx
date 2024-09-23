@@ -18,6 +18,7 @@ export default function FilesBar() {
 
   const [owner, setOwner] = useState('');
   const [files, setFiles] = useState(1);
+  const [searchPrompt, setSearchPrompt] = useState('');
 
   useEffect(() => {
     if (session?.data?.user.name) {
@@ -57,10 +58,10 @@ export default function FilesBar() {
   process.env.FILENAME = message;
 
   const filedivs = Array.from({ length: message.length }, (_, index) => (
-    <div key={index} className='relative'>
+    ((message[index]?.Filename).substring(0, (message[index]?.Filename).lastIndexOf("_")).includes(searchPrompt)) && (<div key={index} className='relative'>
       <div className='opacity-70 hover:opacity-100 transition-all '>
         <div className='anima '>
-      <ContextCards cmessage={message} cindex={index}/>
+          <ContextCards cmessage={message} cindex={index} cname={message[index]?.Filename} cext={message[index]?.Extension} />
           <div className='shadow-lg hover:shadow-xl transition-all duration-500 rounded-xl p-10 z-2 px-8 bg-accent-light'>
             <div className='flex justify-center  h-full '>
               <div className='content-center  opacity-60'>
@@ -74,14 +75,14 @@ export default function FilesBar() {
             </div>
           </div>
           <div className='text-center sm:text-sm md:text-sm p-1 '>
-            <span>{(JSON.stringify(message[index]?.Filename)).split('_')[0].slice(1)}</span>
+            <span>{(message[index]?.Filename).substring(0, (message[index]?.Filename).lastIndexOf("_"))}</span>
             <span>.</span>
-            <span className='opacity-50'>{(JSON.stringify(message[index]?.Extension)).slice(1, -1)}</span>
+            <span className='opacity-50'>{(message[index]?.Extension)}</span>
           </div>
         </div>
       </div>
     </div>
-  ));
+    )));
 
   return (
     <div className="transition-all flex h-screen w-screen p-10 pt-[30px]  z-[-1]">
@@ -98,7 +99,8 @@ export default function FilesBar() {
                   name="search"
                   type="text"
                   placeholder="Поиск"
-                //value={search}
+                  value={searchPrompt}
+                  onInput={(e) => [setSearchPrompt(e.target.value)]}
                 />
               </div>
               <AddDialog />

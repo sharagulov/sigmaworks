@@ -67,7 +67,6 @@ function FileEncryptor() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-
       const filename = fileName.split('.')[0];
       const extension = fileName.split('.')[1];
       const hash = encryptedData;
@@ -110,7 +109,7 @@ function FileEncryptor() {
         </div>
         <form onSubmit={handleSubmit}>
           <DialogClose>
-            {fileName && <Button type="submit">Добавить</Button>}
+            {fileName && <Button>Добавить</Button>}
           </DialogClose>
         </form>
       </div>

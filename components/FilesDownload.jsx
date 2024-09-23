@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dialog"
 import { Button } from './ui/button';
 
-function FileEncryptor({ cmessage, cindex }) {
+function FilesDownload({ cmessage, cindex }) {
   const [encryptedData, setEncryptedData] = useState('');
   const [fileName, setFileName] = useState('');
   const [fileType, setFileType] = useState('');
@@ -67,15 +67,8 @@ function FileEncryptor({ cmessage, cindex }) {
   }, []);
 
   return (
-    <div>
-
-      <div className='flex flex-row justify-between'>
-        <div className="file-encryptor-container content-center text-center">
-        </div>
-        <div onClick={handleDecrypt} type="submit">Скачать</div>
-      </div>
-    </div>
+    <div className='h-full w-full' onClick={handleDecrypt} >Скачать</div>
   );
 }
 
-export default FileEncryptor;
+export default FilesDownload;
