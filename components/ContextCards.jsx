@@ -16,7 +16,8 @@ import {
 } from "@/components/ui/context-menu"
 import FilesDownload from '@/components/FilesDownload'
 import DeleteDialog from '@/components/DeleteDialog'
-import { DownloadIcon, TrashIcon } from "@radix-ui/react-icons"
+import TracelessDialog from '@/components/TracelessDialog'
+import { DownloadIcon, TrashIcon, StarIcon } from "@radix-ui/react-icons"
 
 export default function ContextCards({ cmessage, cindex, cname, cext }) {
   return (
@@ -27,21 +28,22 @@ export default function ContextCards({ cmessage, cindex, cname, cext }) {
       </ContextMenuTrigger>
       <ContextMenuContent className="w-64">
 
-        <ContextMenuItem inset disabled={(cmessage ? false : true)} onClick={(e) => e.preventDefault()}>
+        <ContextMenuItem  onClick={(e) => e.preventDefault()}>
+            <TracelessDialog cmessage={cmessage} cindex={cindex} />
+            <StarIcon />
+        </ContextMenuItem>
+
+        <ContextMenuItem  disabled={(cmessage ? false : true)} onClick={(e) => e.preventDefault()}>
           <FilesDownload cmessage={cmessage} cindex={cindex} />
           <DownloadIcon />
         </ContextMenuItem>
 
-        <ContextMenuItemUnsafe inset onClick={(e) => e.preventDefault()}>
+        <ContextMenuItemUnsafe  onClick={(e) => e.preventDefault()}>
           <DeleteDialog cname={cname} cext={cext} />
           <TrashIcon />
         </ContextMenuItemUnsafe>
 
-        <ContextMenuItem inset>
-          Reload
-          <ContextMenuShortcut>⌘R</ContextMenuShortcut>
-        </ContextMenuItem>
-        <ContextMenuSub>
+        {/* <ContextMenuSub>
           <ContextMenuSubTrigger inset>More Tools</ContextMenuSubTrigger>
           <ContextMenuSubContent className="w-48">
             <ContextMenuItem>
@@ -68,7 +70,7 @@ export default function ContextCards({ cmessage, cindex, cname, cext }) {
             Pedro Duarte
           </ContextMenuRadioItem>
           <ContextMenuRadioItem value="colm">Colm Tuite</ContextMenuRadioItem>
-        </ContextMenuRadioGroup>
+        </ContextMenuRadioGroup> */}
       </ContextMenuContent>
     </ContextMenu>
   )
