@@ -9,6 +9,8 @@ export default function Header() {
   const router = useRouter();
   const session = useSession();
   console.log(session);
+  const username = session?.data?.user.name;
+  const userimage = session?.data?.user.image;
 
   return (
     <header className=" z-10 transition-all content-center header absolute w-full h-[70px] bg-black backdrop-blur-xl rounded-lg shadow">
@@ -28,9 +30,9 @@ export default function Header() {
             <div className="flex gap-10">
               <div className="flex">
                 <div className="content-center">
-                  <Avatar className="w-[30px] h-[30px]" >
-                    <AvatarImage src={session?.data?.user.image ? session?.data?.user.image : ""} alt="avatar" />
-                    <AvatarFallback>{session?.data?.user.name}</AvatarFallback>
+                  <Avatar className="w-[30px] h-[30px] text-black" >
+                    <AvatarImage src={userimage ? userimage : "../img/defavatar.png"} alt="avatar" />
+                    <AvatarFallback>{session?.data?.user.name.slice(0, 2).toUpperCase()}</AvatarFallback>
                   </Avatar>
                 </div>
                 <Button variant="link" className="text-sm" onClick={() => { router.push("/profile") }}>{session?.data?.user.name}</Button>

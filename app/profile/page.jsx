@@ -26,8 +26,8 @@ export default function Profile() {
             <div className="text-center text-lg">{username}</div>
             <div className="content-center">
               <Avatar className="w-[30px] h-[30px]" >
-                <AvatarImage src={session?.data?.user.image ? session?.data?.user.image : ""} alt="avatar" />
-                <AvatarFallback>{session?.data?.user.name}</AvatarFallback>
+                <AvatarImage src={userimage ? userimage : "../img/defavatar.png"} alt="avatar" />
+                <AvatarFallback>{session?.data?.user.name.slice(0, 2).toUpperCase()}</AvatarFallback>
               </Avatar>
             </div>
           </div>
@@ -41,7 +41,7 @@ export default function Profile() {
       </div>
 
       {value == 2 && (
-        <FilesBar/>
+        <FilesBar />
       )}
 
 

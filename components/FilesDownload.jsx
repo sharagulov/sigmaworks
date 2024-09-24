@@ -53,7 +53,6 @@ function FilesDownload({ cmessage, cindex }) {
       try {
         const currentFilename = cmessage[cindex]?.Filename;
         setFilename(currentFilename);
-        console.log(currentFilename, typeof (currentFilename));
         const response = await axios.post('/api/getfileshash', { currentFilename });
         setMessage(response.data.message);
         console.log(response.data.message);

@@ -144,3 +144,5 @@ export class AssetTransferContract extends Contract {
   }
 
 }
+
+
