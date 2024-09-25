@@ -20,13 +20,15 @@ import { Label } from './ui/label';
 import { Button } from './ui/button';
 import { CaretLeftIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
+import { Loader, Loader2, Loader2Icon, LoaderCircle, LoaderCircleIcon, LoaderIcon, LoaderPinwheel } from "lucide-react";
 
 
 export default function FormComponent() {
 
   const router = useRouter()
 
-
+  const [loading, setLoading] = useState(false)
+  const [loaderOpacity, setLoaderOpacity] = useState(0)
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
@@ -52,6 +54,16 @@ export default function FormComponent() {
   }, [message]);
 
   const handleRegistrationClick = async () => {
+
+    setLoading(true);
+    setLoaderOpacity(1);
+    const timer = setTimeout(() => {
+      setLoaderOpacity(0);
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000); // Время анимации исчезновения
+    }, 30000);
+
     await new Promise(resolve => {
       const checkMessage = () => {
         if ((JSON.stringify(messageRef.current)).slice(1, -3) === "success") {
@@ -61,10 +73,11 @@ export default function FormComponent() {
         }
       };
       checkMessage();
+      return () => clearTimeout(timer);
     });
 
     if ((JSON.stringify(messageRef.current)).slice(1, -3) === "success") {
-      router.push('/new/registration/success');
+      router.push('/registration/success');
     }
   };
 
@@ -146,7 +159,8 @@ export default function FormComponent() {
                     <CaretLeftIcon className="w-[40px] transition-colors  text-black/50 hover:text-black/80 h-[40px]"></CaretLeftIcon>
                   </button>
                 </div>
-                <Button onClick={() => { handleRegistrationClick(); setPasserror(pass !== repass) }} type='submit'>Регистрация</Button>
+                <Button onClick={() => { handleRegistrationClick(); setPasserror(pass !== repass)}} type='submit'>Регистрация</Button>
+                {loading && <div style={{opacity: loaderOpacity}} className="animate-spin transition-all duration-[2s] absolute text-accent ml-[170px]"><Loader2Icon /></div>}
               </CardFooter>
             </form>
           </Card>

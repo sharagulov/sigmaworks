@@ -17,13 +17,28 @@ import { Button } from './ui/button';
 import { CaretLeftIcon } from "@radix-ui/react-icons";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
+import { Loader2Icon } from "lucide-react";
 
 
 export default function FormComponent() {
 
+  const [loading, setLoading] = useState(false)
+  const [loaderOpacity, setLoaderOpacity] = useState(0)
   const [error, setError] = useState('');
 
   const router = useRouter()
+
+  const Load = async () => {
+    setLoading(true);
+    setLoaderOpacity(1);
+    const timer = setTimeout(() => {
+      setLoaderOpacity(0);
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000); // Время анимации исчезновения
+    }, 30000);
+  }
+
   const handleSubmit = async (e) => {
 
     e.preventDefault();
@@ -76,7 +91,7 @@ export default function FormComponent() {
                   </div>
 
                   <div>
-                  <Label className="text-destructive text-[10px]">{error}</Label>
+                    <Label className="text-destructive text-[10px]">{error}</Label>
                   </div>
                 </div>
               </CardContent>
@@ -86,7 +101,8 @@ export default function FormComponent() {
                     <CaretLeftIcon className="w-[40px] transition-colors  text-black/50 hover:text-black/80 h-[40px]"></CaretLeftIcon>
                   </button>
                 </div>
-                <Button type='submit'>Войти</Button>
+                <Button onClick={() => { Load() }} type='submit'>Войти</Button>
+                {loading && <div style={{ opacity: loaderOpacity }} className="animate-spin transition-all duration-[2s] absolute text-accent ml-[120px]"><Loader2Icon /></div>}
               </CardFooter>
             </form>
           </Card>
