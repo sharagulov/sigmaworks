@@ -1,5 +1,5 @@
 
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import Providers from "../components/Providers"
 import "./globals.css";
 
