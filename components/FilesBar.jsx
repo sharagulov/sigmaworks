@@ -14,6 +14,7 @@ import { Button } from './ui/button';
 import AddDialog from '@/components/AddDialog'
 
 export default function FilesBar() {
+
   const session = useSession(authConfig);
 
   const [owner, setOwner] = useState('');
@@ -63,7 +64,7 @@ export default function FilesBar() {
         <div className='anima '>
           <ContextCards cmessage={message} cindex={index} cname={message[index]?.Filename} cext={message[index]?.Extension} />
           <div className='shadow-lg hover:shadow-xl transition-all duration-500 rounded-xl p-10 z-2 px-8 bg-accent-light'>
-            <div className='flex justify-center  h-full '>
+            <div className='flex justify-center h-full '>
               <div className='content-center  opacity-60'>
                 <Image
                   src="/img/file.png"
@@ -104,7 +105,6 @@ export default function FilesBar() {
                 />
               </div>
               <AddDialog />
-
             </div>
             <div className='content-center'>
               <span className=''>Всего файлов: {message.length}</span>
