@@ -15,8 +15,8 @@ export default function Header() {
   return (
     <header className=" z-10 transition-all content-center header absolute w-full h-[70px] bg-black backdrop-blur-xl rounded-lg shadow">
       <div className="px-[50px]">
-        <div className="flex text-white content-center justify-between w-full">
-          <a href="/" className="content-center">
+        <div className="flex text-white content-center justify-center lg:justify-between w-full">
+          <a href="/" className="content-center hidden lg:block">
             <Image
               src="/img/safethrow.png"
               width={100}
@@ -41,7 +41,7 @@ export default function Header() {
 
             </div>
             :
-            <div className="flex gap-10">
+            <div className="flex lg:gap-10 md:gap-10 sm:gap-10 gap-1">
               <Button className="" onClick={() => router.push('/new/signin')} variant={"ghost"} >Войти</Button>
               <Button type="button" onClick={() => router.push('/new/registration')} variant={"outline"} >Создать аккаунт</Button>
             </div>
