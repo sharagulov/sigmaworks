@@ -9,14 +9,27 @@ const inter = Manrope({
   display: "swap",
 })
 
+export const metadata = {
+  title: "Safethrow",
+  description: "Sigmaworks corporaton",
+  icons: {
+    icon: ['/favicon.ico?v=4'],
+    apple: ['/apple-touch-icon.png?v=4'],
+    shortcut: ['/apple-touch-icon.png'],
+  }
+}
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body
         className={`${inter.className} font-medium text-black  overflow-x-hidden`}
       >
         <Providers>
-        {children}
+          {children}
         </Providers>
       </body>
     </html>

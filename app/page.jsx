@@ -57,7 +57,7 @@ export default function New() {
                     <span className="content-center z-10 md:w-[50%] w-[80%] text-center lg:text-lg md:text-base text-sm">в сервис Safethrow интегрирована система хранения данных с помощью блокчейн-технологий, обеспечивающая безопасность ваших файлов. </span>
                   </div>
                   <div className="z-10 mt-2 select-none flex justify-center">
-                    <div className=" md:w-[10%] w-[30%] flex gap-5 h-[35px] flex-row">
+                    <div className="lg:w-[15%] md:w-[20%] w-[40%] flex gap-5 h-[35px] flex-row">
                       <div className="w-full flex justify-center rounded-lg text-black/80 hover:bg-indigo-400/20 transition-all bg-indigo-500/10">
                         <div className="content-center md:text-sm text-xs">Hyperledger</div>
                       </div>
@@ -84,7 +84,7 @@ export default function New() {
                     <span className="content-center z-10 md:w-[50%] w-[80%] text-center lg:text-lg md:text-base text-sm">технологии, используемые при разработке сервиса, отвечают современным стандартам шифрования и безопасноти.</span>
                   </div>
                   <div className="z-10 mt-2 select-none flex justify-center">
-                    <div className=" md:w-[10%] w-[60%] flex gap-5 h-[35px] flex-row">
+                    <div className="lg:w-[15%] md:w-[30%] w-[60%] flex gap-5 h-[35px] flex-row">
                       <div className="w-full flex justify-center rounded-lg text-black/80 hover:bg-blue-400/20 transition-all bg-blue-500/10">
                         <div className="content-center md:text-sm text-xs">AES</div>
                       </div>
