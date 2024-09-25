@@ -20,14 +20,14 @@ export default function New() {
         <div className="dark">
           <div className="absolute bg-background h-screen w-screen"></div>
           <div className="flex select-none justify-center dark:text-white text-center">
-            <div className="mt-[45vh] lg:text-5xl text-4xl landing flex lg:flex-row md:flex-row sm:flex-row flex-col justify-between w-fit lg:gap-3 md:gap-3 gap-2 sm:gap-3 mx-[100px]">
+            <div className="mt-[45svh] lg:text-5xl text-4xl landing flex lg:flex-row md:flex-row sm:flex-row flex-col justify-between w-fit lg:gap-3 md:gap-3 gap-2 sm:gap-3 mx-[100px]">
               <span className="biglanding">Safethrow</span>
               <span className="content-end text-base lg:text-lg landing2">инновационный облачный сервис</span>
             </div>
           </div>
 
           <div className="flex landing3 select-none dark:text-white justify-center text-center">
-            <div className="lg:mt-[40vh] md:mt-[40vh] sm:mt-[40vh] mt-[30vh] text-xs">
+            <div className="sm:mt-[40svh] mt-[30svh] text-xs">
               Давайте знакомиться!
             </div>
           </div>
