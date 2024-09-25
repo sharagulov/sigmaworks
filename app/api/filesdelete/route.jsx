@@ -10,7 +10,7 @@ export async function POST(request) {
   const body = await request.json();
   const { cname } = body;
 
-  const directory = "_blockchain/asset-transfer-basic/files/application-gateway-typescript"
+  const directory = "../_blockchain/asset-transfer-basic/files/application-gateway-typescript"
   const command = `node dist/deleteAsset.js --filename "${cname}"`;
 
   try {

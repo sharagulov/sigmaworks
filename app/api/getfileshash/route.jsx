@@ -9,7 +9,7 @@ export async function POST(request) {
   const body = await request.json();
   const { currentFilename } = body;
 
-  const directory = "_blockchain/asset-transfer-basic/files/application-gateway-typescript"
+  const directory = "../_blockchain/asset-transfer-basic/files/application-gateway-typescript"
   const command = `node dist/getFilesHash.js --filename "${currentFilename}"`;
 
   try {

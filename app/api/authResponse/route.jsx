@@ -7,8 +7,8 @@ const execAsync = promisify(exec);
 export async function POST(request) {
   const body = await request.json();
   const { name } = body;
-  
-  const directory = "_blockchain/asset-transfer-basic/user/application-gateway-typescript"
+
+  const directory = "../_blockchain/asset-transfer-basic/user/application-gateway-typescript"
   const command = `node dist/assetExists.js --userid ${name}`;
 
   try {

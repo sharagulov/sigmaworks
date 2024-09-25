@@ -10,7 +10,7 @@ export async function POST(request) {
   const body = await request.json();
   const { cname, newowner } = body;
 
-  const directory = "_blockchain/asset-transfer-basic/files/application-gateway-typescript"
+  const directory = "../_blockchain/asset-transfer-basic/files/application-gateway-typescript"
   const command = `node dist/transferAsset.js --filename "${cname}" --newowner "${newowner}"`;
 
   try {

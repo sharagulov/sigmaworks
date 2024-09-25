@@ -10,7 +10,7 @@ export async function POST(request) {
   const tempFilePath = path.join('F:/study/sigma/nextjs/sth/safethrow/temp', `${filename}_hash.txt`);
   await fs.writeFile(tempFilePath, hash);
 
-  const directory = "_blockchain/asset-transfer-basic/files/application-gateway-typescript";
+  const directory = "../_blockchain/asset-transfer-basic/files/application-gateway-typescript";
   const command = 'node';
   const args = [
     'dist/createAsset.js',

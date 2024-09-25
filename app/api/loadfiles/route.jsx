@@ -9,7 +9,7 @@ export async function POST(request) {
   const body = await request.json();
   const { owner } = body;
 
-  const directory = "_blockchain/asset-transfer-basic/files/application-gateway-typescript"
+  const directory = "../_blockchain/asset-transfer-basic/files/application-gateway-typescript"
   const command = `node dist/ownerFiles.js --owner ${owner}`;
 
   try {
