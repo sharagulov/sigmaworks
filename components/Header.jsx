@@ -42,8 +42,8 @@ export default function Header() {
             </div>
             :
             <div className="flex gap-10">
-              <Button className="" onClick={() => router.push('/new/signin')} variant={"ghost"} >Войти</Button>
-              <Button type="button" onClick={() => router.push('/new/registration')} variant={"outline"} >Создать аккаунт</Button>
+              <Button className="" onClick={() => router.push('/signin')} variant={"ghost"} >Войти</Button>
+              <Button type="button" onClick={() => router.push('/registration')} variant={"outline"} >Создать аккаунт</Button>
             </div>
           }
 

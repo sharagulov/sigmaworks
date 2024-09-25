@@ -16,7 +16,7 @@ export default function Success() {
           <p className="text-accent">Аккаунт успешно создан.</p>
           <p className="">Войдите в систему, используя новые данные.</p>
           <Separator className="bg-black/10 mt-2"/>
-          <Button className="mt-3" onClick={() => {router.push('/new/signin')}}>Войти</Button>
+          <Button className="mt-3" onClick={() => {router.push('/signin')}}>Войти</Button>
           </div>
         </div>
       </div>
