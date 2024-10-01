@@ -110,7 +110,7 @@ export default function FilesBar() {
               <span className=''>Всего файлов: {message.length}</span>
             </div>
           </div>
-          <div className='grid gap-5 lg:grid-cols-8 lg:grid-rows-3 sm:grid-cols-3 md:grid-cols-5'>
+          <div className='grid gap-5 grid-cols-2 lg:grid-cols-8 lg:grid-rows-3 sm:grid-cols-3 md:grid-cols-5'>
             {filedivs}
           </div>
         </div>
