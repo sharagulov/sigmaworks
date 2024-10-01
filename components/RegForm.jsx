@@ -40,7 +40,7 @@ export default function FormComponent() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/submit', { name, email, pass, passerror });
+      const response = await axios.post('http://147.45.157.124:22/api/submit', { name, email, pass, passerror });
       setMessage(response.data.message);
       console.log(response.data.message);
     } catch (error) {
@@ -159,8 +159,8 @@ export default function FormComponent() {
                     <CaretLeftIcon className="w-[40px] transition-colors  text-black/50 hover:text-black/80 h-[40px]"></CaretLeftIcon>
                   </button>
                 </div>
-                <Button onClick={() => { handleRegistrationClick(); setPasserror(pass !== repass)}} type='submit'>Регистрация</Button>
-                {loading && <div style={{opacity: loaderOpacity}} className="animate-spin transition-all duration-[2s] absolute text-accent ml-[170px]"><Loader2Icon /></div>}
+                <Button onClick={() => { handleRegistrationClick(); setPasserror(pass !== repass) }} type='submit'>Регистрация</Button>
+                {loading && <div style={{ opacity: loaderOpacity }} className="animate-spin transition-all duration-[2s] absolute text-accent ml-[170px]"><Loader2Icon /></div>}
               </CardFooter>
             </form>
           </Card>
