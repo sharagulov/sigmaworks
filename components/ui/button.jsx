@@ -10,7 +10,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "z-2 bg-accent hover:bg-accent-hover shadow-sm hover:shadow-md",
+          "z-2 bg-accent hover:bg-accent-hover text-xs md:text-sm shadow-sm hover:shadow-md",
         git:
          "shadow-sm hover:shadow-lg bg-black/20 text-black/80 hover:bg-black/10 ",
         destructive:

@@ -85,8 +85,8 @@ function FileEncryptor() {
       <div className='flex flex-row justify-between'>
         <div className="file-encryptor-container content-center text-center">
           <input id="file-upload" accept='.docx, .doc, .pdf, .txt' className='maga' type="file" onChange={handleFileUpload} />
-          <label htmlFor="file-upload" className='text-sm lbl bg-accent-light p-2 rounded-2xl shadow hover:shadow-lg transition-all'>Загрузить файл</label>
-          {fileName && <span className='ml-3 text-sm'>{fileName}</span>}
+          <label htmlFor="file-upload" className='text-xs lbl bg-accent-light p-2 rounded-2xl shadow hover:shadow-lg transition-all'>Загрузить файл</label>
+          {fileName && <span className={(fileName.length > 15) ? "ml-3 text-xs text-[3px]" : "ml-3 text-xs"}>{fileName}</span>}
 
           {/* {encryptedBase64 && (
         <>

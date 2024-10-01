@@ -86,9 +86,9 @@ export default function FilesBar() {
     )));
 
   return (
-    <div className="transition-all flex h-screen w-screen p-10 pt-[30px]  z-[-1]">
+    <div className="transition-all flex h-screen w-screen md:p-10 pt-[30px]  z-[-1]">
       <div className="w-full">
-        <div className=" p-[50px] rounded-[30px] min-h-[600px] backdrop-blur-lg shadow-xl">
+        <div className=" p-5 md:p-[50px] rounded-[30px] min-h-[600px] backdrop-blur-lg shadow-xl">
           <div className='flex justify-between text-center mb-5'>
             <div className='flex gap-5'>
               <div className='flex gap-2'>
@@ -106,7 +106,7 @@ export default function FilesBar() {
               </div>
               <AddDialog />
             </div>
-            <div className='content-center'>
+            <div className='content-center hidden md:block'>
               <span className=''>Всего файлов: {message.length}</span>
             </div>
           </div>

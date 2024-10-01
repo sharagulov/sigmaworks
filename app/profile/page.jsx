@@ -32,10 +32,10 @@ export default function Profile() {
             </div>
           </div>
           <Separator className="bg-black/10 mt-2" />
-          <div className='flex gap-3 p-[10px] transition-all justify-center'>
-            <Button className={(value == 1) ? "bg-accent text-white" : ""} onClick={() => setValue(1)} variant='ighost'>Личные данные</Button>
-            <Button className={(value == 2) ? "bg-accent text-white" : ""} onClick={() => setValue(2)} variant='ighost'>Проводник</Button>
-            <Button className={(value == 3) ? "bg-accent text-white" : ""} onClick={() => setValue(3)} variant='ighost'>Настройки</Button>
+          <div className='flex gap-1 md:gap-3 p-[10px] transition-all justify-center'>
+            <Button className={(value == 1) ? "text-sm md:text-base bg-accent text-white" : "text-sm md:text-base"} onClick={() => setValue(1)} variant='ighost'>Личные данные</Button>
+            <Button className={(value == 2) ? "text-sm md:text-base bg-accent text-white" : "text-sm md:text-base"} onClick={() => setValue(2)} variant='ighost'>Проводник</Button>
+            <Button className={(value == 3) ? "text-sm md:text-base bg-accent text-white" : "text-sm md:text-base"} onClick={() => setValue(3)} variant='ighost'>Настройки</Button>
           </div>
         </div>
       </div>
