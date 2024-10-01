@@ -40,7 +40,7 @@ export default function FormComponent() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://147.45.157.124:22/api/submit', { name, email, pass, passerror });
+      const response = await axios.post('http://147.45.157.124:2525/api/submit', { name, email, pass, passerror });
       setMessage(response.data.message);
       console.log(response.data.message);
     } catch (error) {

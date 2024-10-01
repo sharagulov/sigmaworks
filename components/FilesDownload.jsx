@@ -53,7 +53,7 @@ function FilesDownload({ cmessage, cindex }) {
       try {
         const currentFilename = cmessage[cindex]?.Filename;
         setFilename(currentFilename);
-        const response = await axios.post('/api/getfileshash', { currentFilename });
+        const response = await axios.post('http://147.45.157.124:2525/api/getfileshash', { currentFilename });
         setMessage(response.data.message);
         console.log(response.data.message);
       } catch (error) {
@@ -63,7 +63,7 @@ function FilesDownload({ cmessage, cindex }) {
     };
 
     fetchData();
-  }, []);
+  });
 
   return (
     <div className='h-full w-full' onClick={handleDecrypt} >Скачать</div>

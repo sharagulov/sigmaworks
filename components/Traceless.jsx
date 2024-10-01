@@ -18,7 +18,7 @@ function Traceless({ cmessage, cindex, newowner }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const name = newowner;
-    const response = await axios.post('/api/authResponse', { name });
+    const response = await axios.post('http://147.45.157.124:2525/api/authResponse', { name });
     setMessage(response.data.message);
     console.log(response.data.message);
     if (JSON.stringify(response.data.message).slice(1, -3) === "nosuchuser") {
@@ -27,7 +27,7 @@ function Traceless({ cmessage, cindex, newowner }) {
     else {
       const cname = cmessage[cindex]?.Filename;
       try {
-        const response = await axios.post('/api/filestransition', { cname, newowner });
+        const response = await axios.post('http://147.45.157.124:2525/api/filestransition', { cname, newowner });
         setMessage(response.data.message);
         console.log(response.data.message);
       } catch (error) {

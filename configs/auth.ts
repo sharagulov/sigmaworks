@@ -10,7 +10,7 @@ import * as crypto from 'crypto';
 
 export async function handleSubmit(name) {
   try {
-    const response = await axios.post('http://localhost:3000/api/authResponse', { name });
+    const response = await axios.post('http://147.45.157.124:2525/api/authResponse', { name });
     if (!response.data.message) {
       throw new Error('Неверный формат ответа: отсутствует поле message');
     }
@@ -60,7 +60,6 @@ export const authConfig: AuthOptions = {
           const user: { id: string, email: string, name: string, role: string } = { id: "", email: "", name: jsonname, role: "" }
           return user as User;
         }
-        // при таком написании обработки информации о юзере в next-auth, поле data ничего не возвращает, хотя статус authenticated. как можно исправить?
         return null
       }
     })

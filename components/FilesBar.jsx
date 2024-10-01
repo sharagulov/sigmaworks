@@ -32,7 +32,7 @@ export default function FilesBar() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post('/api/loadfiles', { owner });
+        const response = await axios.post('http://147.45.157.124:2525/api/loadfiles', { owner });
         setMessage(response.data.message);
         console.log(response.data.message);
       } catch (error) {

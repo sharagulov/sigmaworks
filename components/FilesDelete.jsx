@@ -14,7 +14,7 @@ function FilesDelete({ cname, cext }) {
 
   const handleSubmit = async (e) => {
     try {
-      const response = await axios.post('/api/filesdelete', { cname });
+      const response = await axios.post('http://147.45.157.124:2525/api/filesdelete', { cname });
       setMessage(response.data.message);
       console.log(response.data.message);
     } catch (error) {
