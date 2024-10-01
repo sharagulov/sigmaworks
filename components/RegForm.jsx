@@ -77,7 +77,7 @@ export default function FormComponent() {
     });
 
     if ((JSON.stringify(messageRef.current)).slice(1, -3) === "success") {
-      router.push('/registration/success');
+      router.push('/new/registration/success');
     }
   };
 
