@@ -75,7 +75,7 @@ export default function FilesBar() {
               </div>
             </div>
           </div>
-          <div className='text-center sm:text-sm md:text-sm p-1 '>
+          <div className='text-center text-xs md:text-sm p-1 '>
             <span>{(message[index]?.Filename).substring(0, (message[index]?.Filename).lastIndexOf("_"))}</span>
             <span>.</span>
             <span className='opacity-50'>{(message[index]?.Extension)}</span>
