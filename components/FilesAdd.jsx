@@ -86,7 +86,7 @@ function FileEncryptor() {
         <div className="file-encryptor-container content-center text-center">
           <input id="file-upload" accept='.docx, .doc, .pdf, .txt' className='maga' type="file" onChange={handleFileUpload} />
           <label htmlFor="file-upload" className='text-xs lbl bg-accent-light p-2 rounded-2xl shadow hover:shadow-lg transition-all'>Загрузить файл</label>
-          {fileName && <span className={(fileName.length > 15) ? "ml-3 text-xs text-[3px]" : "ml-3 text-xs"}>{fileName}</span>}
+          {fileName && <span className="ml-3 text-xs">{fileName.split('.')[0].substr(0,2)}...{fileName.split('.')[0].substr(-2)}.{fileName.split('.')[1]}</span>}
 
           {/* {encryptedBase64 && (
         <>
