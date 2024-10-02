@@ -12,6 +12,7 @@ import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
 import { Button } from './ui/button';
 
 import AddDialog from '@/components/AddDialog'
+import { Loader2Icon } from 'lucide-react';
 
 export default function FilesBar() {
 
@@ -20,6 +21,32 @@ export default function FilesBar() {
   const [owner, setOwner] = useState('');
   const [files, setFiles] = useState(1);
   const [searchPrompt, setSearchPrompt] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [loaderOpacity, setLoaderOpacity] = useState(0);
+
+  useEffect(() => {
+    let timer;
+    if (loading) {
+      setLoaderOpacity(1);
+      timer = setTimeout(() => {
+        setLoading(false);
+      }, 6000);
+    } else {
+      setLoaderOpacity(0);
+    }
+    return () => clearTimeout(timer);
+  }, [loading]);
+
+  useEffect(() => {
+    let timer;
+    if (loading) {
+      setLoaderOpacity(1);
+      timer = setTimeout(() => {
+        setLoaderOpacity(0);
+      }, 5000);
+    }
+    return () => clearTimeout(timer);
+  }, [loading]);
 
   useEffect(() => {
     if (session?.data?.user.name) {
@@ -57,6 +84,11 @@ export default function FilesBar() {
   }, [message]);
 
   process.env.FILENAME = message;
+  window.onload = () => {
+    setTimeout(() => {
+      setLoading(true);
+    }, 500);
+  }
 
   const filedivs = Array.from({ length: message.length }, (_, index) => (
     ((message[index]?.Filename).substring(0, (message[index]?.Filename).lastIndexOf("_")).includes(searchPrompt)) && (<div key={index} className='relative'>
@@ -105,6 +137,7 @@ export default function FilesBar() {
                 />
               </div>
               <AddDialog />
+              {loading ? <div style={{ opacity: loaderOpacity, transition: 'opacity 0.3s ease-in-out' }} className='animate-spin h-full content-center transition-all  text-accent'><Loader2Icon /></div> : null}
             </div>
             <div className='content-center hidden md:block'>
               <span className=''>Всего файлов: {message.length}</span>
