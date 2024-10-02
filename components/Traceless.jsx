@@ -24,7 +24,7 @@ function Traceless({ cmessage, cindex, newowner }) {
       setLoaderOpacity(1);
       timer = setTimeout(() => {
         setLoading(false);
-      }, 10000);
+      }, 15000);
     } else {
       setLoaderOpacity(0);
     }
@@ -37,8 +37,8 @@ function Traceless({ cmessage, cindex, newowner }) {
       setLoaderOpacity(1);
       timer = setTimeout(() => {
         setLoaderOpacity(0);
-      }, 8000);
-    } 
+      }, 13000);
+    }
     return () => clearTimeout(timer);
   }, [loading]);
 
@@ -56,7 +56,7 @@ function Traceless({ cmessage, cindex, newowner }) {
     else {
       const cname = cmessage[cindex]?.Filename;
       try {
-        
+
         const response = await axios.post('https://safethrow-server.ru/api/filestransition', { cname, newowner });
         setMessage(response.data.message);
 
@@ -72,14 +72,19 @@ function Traceless({ cmessage, cindex, newowner }) {
   };
 
   return (
-    <div className='flex justify-between mt-3'>
-      <div className='text-xs text-destructive content-center'>{JSON.stringify(message).slice(1, -1) === "Такого пользователя не существует" ? message : ""}</div>
-      <DialogClose>
-        <div className='flex flex-row relative'>
-          {loading ? <div style={{ opacity: loaderOpacity, transition: 'opacity 0.3s ease-in-out' }} className='animate-spin h-full content-center transition-all absolute text-accent ml-[-40px]'><Loader2Icon /></div> : null}
-          <Button onClick={handleSubmit} className='h-full w-[100px]' >Передача</Button>
-        </div>
-      </DialogClose>
+    <div>
+
+      <div className='flex justify-between mt-3'>
+        <DialogClose>
+          <div className='flex flex-row relative'>
+            {loading ? <div style={{ opacity: loaderOpacity, transition: 'opacity 0.3s ease-in-out' }} className='animate-spin h-full content-center transition-all absolute text-accent ml-[110px]'><Loader2Icon /></div> : null}
+            <Button onClick={handleSubmit} className='h-full w-[100px]' >Передача</Button>
+          </div>
+        </DialogClose>
+        <div className='text-xs text-destructive text-right content-center'>{JSON.stringify(message).slice(1, -1) === "Такого пользователя не существует" ? message : ""}</div>
+
+      </div>
+      <p className="opacity-50 text-xs mt-5">Для успешной передачи требуется около 15 секунд. После завершения окно автоматически закроется.</p>
     </div>
   );
 }

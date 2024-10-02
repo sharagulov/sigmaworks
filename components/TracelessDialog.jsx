@@ -37,8 +37,9 @@ export default function TracelessDialog({ cmessage, cindex }) {
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Бесследная передача</DialogTitle>
-          <DialogDescription>
-            Эта технология позволяет приватно отправлять файлы другим пользователям системы SAFETHROW.
+          <DialogDescription><span>
+            Эта технология позволяет приватно отправлять файлы другим пользователям системы SAFETHROW. 
+          </span>
           </DialogDescription>
         </DialogHeader>
         <div className="flex justify-center">
