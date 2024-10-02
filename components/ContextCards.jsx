@@ -27,18 +27,19 @@ export default function ContextCards({ cmessage, cindex, cname, cext }) {
         </div>
       </ContextMenuTrigger>
       <ContextMenuContent className="w-64">
-
-        <ContextMenuItem  onClick={(e) => e.preventDefault()}>
-            <TracelessDialog cmessage={cmessage} cindex={cindex} />
-            <StarIcon />
+        <ContextMenuLabel className="break-all h-fit">{cname.substring(0, cname.lastIndexOf('_'))}.{cext}</ContextMenuLabel>
+        <ContextMenuSeparator />
+        <ContextMenuItem onClick={(e) => e.preventDefault()}>
+          <TracelessDialog cmessage={cmessage} cindex={cindex} />
+          <StarIcon />
         </ContextMenuItem>
 
-        <ContextMenuItem  disabled={(cmessage ? false : true)} onClick={(e) => e.preventDefault()}>
+        <ContextMenuItem disabled={(cmessage ? false : true)} onClick={(e) => e.preventDefault()}>
           <FilesDownload cmessage={cmessage} cindex={cindex} />
           <DownloadIcon />
         </ContextMenuItem>
 
-        <ContextMenuItemUnsafe  onClick={(e) => e.preventDefault()}>
+        <ContextMenuItemUnsafe onClick={(e) => e.preventDefault()}>
           <DeleteDialog cname={cname} cext={cext} />
           <TrashIcon />
         </ContextMenuItemUnsafe>

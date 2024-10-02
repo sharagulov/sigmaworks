@@ -24,7 +24,7 @@ function FilesDelete({ cname, cext }) {
 
   return (
     <div className='flex justify-between'>
-      <div className='content-center text-xs md:text-sm'>{cname.substring(0, cname.lastIndexOf("_") + 1).slice(0, -1).substr(0, 2)}...{cname.substring(0, cname.lastIndexOf("_") + 1).slice(0, -1).substr(-2)}.{cext}</div>
+      <div className='content-center text-xs md:text-sm'>{cname.length < 25 ? (cname.substring(0, cname.lastIndexOf('_'))) : (cname.substring(0, cname.lastIndexOf('_'))).substring(0, 18)}{cname.length <= 25 ? "" : "..."}.{cext}</div>
       <DialogClose>
         <Button variant="destructive" onClick={handleSubmit} className='h-full w-[100px]' >Удалить</Button>
       </DialogClose>
