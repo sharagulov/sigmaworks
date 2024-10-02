@@ -43,7 +43,7 @@ export default function TracelessDialog({ cmessage, cindex }) {
         </DialogHeader>
         <div className="flex justify-center">
           <div className="flex flex-row justify-between w-[70%]">
-            <div className="content-center">{owner}</div>
+            <div className="content-center">{owner ? owner : "nbd"}</div>
             <div className="content-center animate-pulse"><ArrowRightIcon /></div>
             <Input
               className="w-[50%]"

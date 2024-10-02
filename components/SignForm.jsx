@@ -16,7 +16,7 @@ import { Label } from './ui/label';
 import { Button } from './ui/button';
 import { CaretLeftIcon } from "@radix-ui/react-icons";
 import { signIn } from "next-auth/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Loader2Icon } from "lucide-react";
 
 
@@ -28,19 +28,28 @@ export default function FormComponent() {
 
   const router = useRouter()
 
-  const Load = async () => {
-    setLoading(true);
-    setLoaderOpacity(1);
-    const timer = setTimeout(() => {
-      setLoaderOpacity(0);
-      setTimeout(() => {
+  useEffect(() => {
+    let timer;
+    if (loading) {
+      timer = setTimeout(() => {
         setLoading(false);
-      }, 2000); // Время анимации исчезновения
-    }, 30000);
-  }
+      }, 10000);
+    } 
+    return () => clearTimeout(timer);
+  }, [loading]);
+
+  useEffect(() => {
+    let timer;
+    if (loading) {
+      setLoaderOpacity(1);
+      timer = setTimeout(() => {
+        setLoaderOpacity(0);
+      }, 8000);
+    } 
+    return () => clearTimeout(timer);
+  }, [loading]);
 
   const handleSubmit = async (e) => {
-
     e.preventDefault();
     const formData = new FormData(e.currentTarget)
     const res = await signIn('credentials', {
@@ -101,8 +110,8 @@ export default function FormComponent() {
                     <CaretLeftIcon className="w-[40px] transition-colors  text-black/50 hover:text-black/80 h-[40px]"></CaretLeftIcon>
                   </button>
                 </div>
-                <Button onClick={() => { Load() }} type='submit'>Войти</Button>
-                {loading && <div style={{ opacity: loaderOpacity }} className="animate-spin transition-all duration-[2s] absolute text-accent ml-[120px]"><Loader2Icon /></div>}
+                <Button onClick={() => setLoading(true)} type='submit'>Войти</Button>
+                {loading && <div style={{ opacity: loaderOpacity, transition: 'opacity 0.3s ease-in-out' }} className="animate-spin transition-all duration-[2s] absolute text-accent ml-[120px]"><Loader2Icon /></div>}
               </CardFooter>
             </form>
           </Card>

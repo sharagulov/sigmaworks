@@ -3,7 +3,6 @@
 import { useRouter } from "next/navigation";
 import { useState, useRef, useEffect } from 'react';
 import AuthBlock from '../components/AuthBlock'
-import { toast } from "sonner"
 
 import axios from 'axios';
 import {
@@ -20,8 +19,7 @@ import { Label } from './ui/label';
 import { Button } from './ui/button';
 import { CaretLeftIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
-import { Loader, Loader2, Loader2Icon, LoaderCircle, LoaderCircleIcon, LoaderIcon, LoaderPinwheel } from "lucide-react";
-
+import { Loader2Icon } from "lucide-react";
 
 export default function FormComponent() {
 
@@ -36,6 +34,26 @@ export default function FormComponent() {
   const [passerror, setPasserror] = useState(false);
   const [message, setMessage] = useState('');
 
+  useEffect(() => {
+    let timer;
+    if (loading) {
+      timer = setTimeout(() => {
+        setLoading(false);
+      }, 10000);
+    } 
+    return () => clearTimeout(timer);
+  }, [loading]);
+
+  useEffect(() => {
+    let timer;
+    if (loading) {
+      setLoaderOpacity(1);
+      timer = setTimeout(() => {
+        setLoaderOpacity(0);
+      }, 8000);
+    } 
+    return () => clearTimeout(timer);
+  }, [loading]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -55,15 +73,7 @@ export default function FormComponent() {
 
   const handleRegistrationClick = async () => {
 
-    setLoading(true);
-    setLoaderOpacity(1);
-    const timer = setTimeout(() => {
-      setLoaderOpacity(0);
-      setTimeout(() => {
-        setLoading(false);
-      }, 2000); // Время анимации исчезновения
-    }, 30000);
-
+    
     await new Promise(resolve => {
       const checkMessage = () => {
         if ((JSON.stringify(messageRef.current)).slice(1, -3) === "success") {
@@ -146,11 +156,6 @@ export default function FormComponent() {
                     <Label className="text-destructive text-[10px]" htmlFor="repass">{(passerror) ? "Пароли не совпадают" : ""}</Label>
                   </div>
 
-                  <div className="flex items-center justify-center space-x-2 mt-3">
-                    <Checkbox className="" id="terms" />
-                    <Label htmlFor="terms">Занятная галочка</Label>
-                  </div>
-
                 </div>
               </CardContent>
               <CardFooter className="flex justify-center">
@@ -159,8 +164,8 @@ export default function FormComponent() {
                     <CaretLeftIcon className="w-[40px] transition-colors  text-black/50 hover:text-black/80 h-[40px]"></CaretLeftIcon>
                   </button>
                 </div>
-                <Button onClick={() => { handleRegistrationClick(); setPasserror(pass !== repass) }} type='submit'>Регистрация</Button>
-                {loading && <div style={{ opacity: loaderOpacity }} className="animate-spin transition-all duration-[2s] absolute text-accent ml-[170px]"><Loader2Icon /></div>}
+                <Button onClick={() => { handleRegistrationClick(); setPasserror(pass !== repass); setLoading(true); }} type='submit'>Регистрация</Button>
+                {loading && <div style={{ opacity: loaderOpacity, transition: 'opacity 0.3s ease-in-out', }} className="animate-spin transition-all duration-[2s] absolute text-accent ml-[170px]"><Loader2Icon /></div>}
               </CardFooter>
             </form>
           </Card>
