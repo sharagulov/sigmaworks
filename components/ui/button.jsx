@@ -5,12 +5,12 @@ import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center text-black/80 justify-center text-white whitespace-nowrap rounded-2xl text-sm transition-all focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center text-black/80 justify-center text-white whitespace-nowrap rounded-2xl text-xs md:text-sm  transition-all focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         default:
-          "z-2 bg-accent hover:bg-accent-hover text-xs md:text-sm shadow-sm hover:shadow-md",
+          "z-2 bg-accent hover:bg-accent-hover shadow-sm hover:shadow-md",
         git:
          "shadow-sm hover:shadow-lg bg-black/20 text-black/80 hover:bg-black/10 ",
         destructive:
@@ -20,7 +20,7 @@ const buttonVariants = cva(
         secondary:
           "bg-secondary text-secondary-foreground shadow-sm ",
         ghost: "hover:bg-accent-hover ",
-        ighost: "hover:bg-accent-hover text-base hover:shadow-md text-black hover:text-white",
+        ighost: "hover:bg-accent-hover hover:shadow-md text-black hover:text-white",
         link: "underline-offset-4 hover:underline",
         white: "text-black/80 shadow hover:shadow-md",
         whiteAction: "text-black/80 shadow hover:shadow-md hover:bg-accent-hover hover:text-white",

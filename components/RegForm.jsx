@@ -148,7 +148,7 @@ export default function FormComponent() {
 
                   <div className="flex items-center justify-center space-x-2 mt-3">
                     <Checkbox className="" id="terms" />
-                    <Label htmlFor="terms">Я соглашаюсь на всё</Label>
+                    <Label htmlFor="terms">Занятная галочка</Label>
                   </div>
 
                 </div>

@@ -33,9 +33,9 @@ export default function Profile() {
           </div>
           <Separator className="bg-black/10 mt-2" />
           <div className='flex gap-1 md:gap-3 p-[10px] transition-all justify-center'>
-            <Button className={(value == 1) ? "text-sm md:text-base bg-accent text-white" : "text-sm md:text-base"} onClick={() => setValue(1)} variant='ighost'>Личные данные</Button>
-            <Button className={(value == 2) ? "text-sm md:text-base bg-accent text-white" : "text-sm md:text-base"} onClick={() => setValue(2)} variant='ighost'>Проводник</Button>
-            <Button className={(value == 3) ? "text-sm md:text-base bg-accent text-white" : "text-sm md:text-base"} onClick={() => setValue(3)} variant='ighost'>Настройки</Button>
+            <Button className={(value == 1) ? "text-xs md:text-sm bg-accent text-white" : "text-xs md:text-sm"} onClick={() => setValue(1)} variant='ighost'>Личные данные</Button>
+            <Button className={(value == 2) ? "text-xs md:text-sm bg-accent text-white" : "text-xs md:text-sm"} onClick={() => setValue(2)} variant='ighost'>Проводник</Button>
+            <Button className={(value == 3) ? "text-xs md:text-sm bg-accent text-white" : "text-xs md:text-sm"} onClick={() => setValue(3)} variant='ighost'>Настройки</Button>
           </div>
         </div>
       </div>
