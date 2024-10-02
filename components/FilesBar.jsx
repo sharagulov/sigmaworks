@@ -76,7 +76,7 @@ export default function FilesBar() {
             </div>
           </div>
           <div className='text-center text-xs md:text-sm p-1 '>
-            <span>{(message[index]?.Filename).substring(0, (message[index]?.Filename).lastIndexOf("_"))}</span>
+            <span>{message[index]?.Filename <= 17 ? ((message[index]?.Filename).substring(0, (message[index]?.Filename).lastIndexOf("_"))) : ((message[index]?.Filename).substring(0, (message[index]?.Filename).lastIndexOf("_").substr(0,3)))}{message[index]?.Filename <= 17 ? "" : `...${((message[index]?.Filename).substring(0, (message[index]?.Filename).lastIndexOf("_").substr(-3)))}`}</span>
             <span>.</span>
             <span className='opacity-50'>{(message[index]?.Extension)}</span>
           </div>
@@ -111,6 +111,31 @@ export default function FilesBar() {
             </div>
           </div>
           <div className='grid gap-5 grid-cols-2 lg:grid-cols-8 lg:grid-rows-3 sm:grid-cols-3 md:grid-cols-5'>
+ <div key={'index'} className='relative'>
+      <div className='opacity-70 hover:opacity-100 transition-all '>
+        <div className='anima '>
+          <ContextCards cmessage={'message'} cindex={'index'} cname={"message[index]?.Filename"} cext={"message[index]?.Extension"} />
+          <div className='shadow-lg hover:shadow-xl transition-all duration-500 rounded-xl p-10 z-2 px-8 bg-accent-light'>
+            <div className='flex justify-center h-full '>
+              <div className='content-center  opacity-60'>
+                <Image
+                  src="/img/file.png"
+                  width={50}
+                  height={50}
+                  alt="LOGO"
+                />
+              </div>
+            </div>
+          </div>
+          <div className='text-center text-xs md:text-sm p-1 '>
+            <span>{'messgwherll_123456'.length <= 17 ? (('messgwherll_123456').substring(0, ("messgwherll_123456").lastIndexOf("_"))) : ((('messgwherll_123456').substring(0, ("messgwherll_123456").lastIndexOf("_")).substr(0,3)))}{'messgwherll_123456'.length <= 17 ? "" : `...${((('messgwherll_123456').substring(0, ("messgwherll_123456").lastIndexOf("_")).substr(-3)))}`}</span>
+            <span>.</span>
+            <span className='opacity-50'>{("extension")}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
             {filedivs}
           </div>
         </div>
