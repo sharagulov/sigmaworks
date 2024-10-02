@@ -76,7 +76,7 @@ export default function FilesBar() {
             </div>
           </div>
           <div className='text-center text-xs md:text-sm p-1 '>
-            <span>{message[index]?.Filename <= 17 ? ((message[index]?.Filename).substring(0, (message[index]?.Filename).lastIndexOf("_"))) : ((message[index]?.Filename).substring(0, (message[index]?.Filename).lastIndexOf("_").substr(0, 3)))}{message[index]?.Filename <= 17 ? "" : `...${((message[index]?.Filename).substring(0, (message[index]?.Filename).lastIndexOf("_").substr(-3)))}`}</span>
+            <span>{message[index]?.Filename <= 17 ? ((message[index]?.Filename).substring(0, (message[index]?.Filename).lastIndexOf("_"))) : ((message[index]?.Filename).substring(0, (message[index]?.Filename).lastIndexOf("_").substring(0, 3)))}{message[index]?.Filename <= 17 ? "" : `...${((message[index]?.Filename).substring(0, (message[index]?.Filename).lastIndexOf("_").substring(-3)))}`}</span>
             <span>.</span>
             <span className='opacity-50'>{(message[index]?.Extension)}</span>
           </div>
