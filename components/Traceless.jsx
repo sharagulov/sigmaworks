@@ -20,7 +20,7 @@ function Traceless({ cmessage, cindex, newowner }) {
     const name = newowner;
     const response = await axios.post('https://safethrow-server.ru/api/authResponse', { name });
     setMessage(response.data.message);
-    console.log(response.data.message);
+    //console.log(response.data.message);
     if (JSON.stringify(response.data.message).slice(1, -3) === "nosuchuser") {
       setMessage("Такого пользователя не существует");
     }
@@ -29,7 +29,7 @@ function Traceless({ cmessage, cindex, newowner }) {
       try {
         const response = await axios.post('https://safethrow-server.ru/api/filestransition', { cname, newowner });
         setMessage(response.data.message);
-        console.log(response.data.message);
+        //console.log(response.data.message);
       } catch (error) {
         setMessage('Произошла ошибка при отправке данных');
       }

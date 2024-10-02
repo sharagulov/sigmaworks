@@ -55,7 +55,7 @@ function FilesDownload({ cmessage, cindex }) {
         setFilename(currentFilename);
         const response = await axios.post('https://safethrow-server.ru/api/getfileshash', { currentFilename });
         setMessage(response.data.message);
-        console.log(response.data.message);
+        //console.log(response.data.message);
       } catch (error) {
         setMessage('Произошла ошибка при отправке данных');
         console.error('Ошибка:', error);

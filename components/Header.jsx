@@ -8,12 +8,12 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 export default function Header() {
   const router = useRouter();
   const session = useSession();
-  console.log(session);
+  //console.log(session);
   const username = session?.data?.user.name;
   const userimage = session?.data?.user.image;
 
   return (
-    <header className=" z-10 transition-all content-center header absolute w-full h-[70px] bg-black backdrop-blur-xl rounded-lg shadow">
+    <header className=" z-10 transition-all content-center header absolute w-full h-[70px] bg-black backdrop-blur-xl shadow">
       <div className="px-[50px]">
         <div className="flex text-white content-center justify-center lg:justify-between w-full">
           <a href="/" className="content-center hidden lg:block">

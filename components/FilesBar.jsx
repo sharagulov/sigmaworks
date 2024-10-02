@@ -34,7 +34,7 @@ export default function FilesBar() {
       try {
         const response = await axios.post('https://safethrow-server.ru/api/loadfiles', { owner });
         setMessage(response.data.message);
-        console.log(response.data.message);
+        //console.log(response.data.message);
       } catch (error) {
         setMessage('Произошла ошибка при отправке данных');
         console.error('Ошибка:', error);

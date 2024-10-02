@@ -16,7 +16,7 @@ function FilesDelete({ cname, cext }) {
     try {
       const response = await axios.post('https://safethrow-server.ru/api/filesdelete', { cname });
       setMessage(response.data.message);
-      console.log(response.data.message);
+      //console.log(response.data.message);
     } catch (error) {
       setMessage('Произошла ошибка при отправке данных');
     }

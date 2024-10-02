@@ -70,10 +70,10 @@ function FileEncryptor() {
       const filename = fileName.split('.')[0];
       const extension = fileName.split('.')[1];
       const hash = encryptedData;
-      console.log(extension);
+      //console.log(extension);
       const response = await axios.post('https://safethrow-server.ru/api/addfiles', { filename, extension, owner, hash });
       setMessage(response.data.message);
-      console.log(response.data.message);
+      //console.log(response.data.message);
     } catch (error) {
       setMessage('Произошла ошибка при отправке данных');
     }
