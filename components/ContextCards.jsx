@@ -52,7 +52,7 @@ export default function ContextCards({ cmessage, cindex, cname, cext }) {
               <ContextMenuShortcut>⇧⌘S</ContextMenuShortcut>
             </ContextMenuItem>
             <ContextMenuItem>Create Shortcut...</ContextMenuItem>
-            <ContextMenuItem>Name Window...</ContextMenuItem>
+            <ContextMenuItem>Name ...</ContextMenuItem>
             <ContextMenuSeparator />
             <ContextMenuItem>Developer Tools</ContextMenuItem>
           </ContextMenuSubContent>

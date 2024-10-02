@@ -84,11 +84,15 @@ export default function FilesBar() {
   }, [message]);
 
   process.env.FILENAME = message;
-  window.onload = () => {
-    setTimeout(() => {
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
       setLoading(true);
     }, 500);
-  }
+
+    // Очистка таймера при размонтировании компонента
+    return () => clearTimeout(timer);
+  }, []);
 
   const filedivs = Array.from({ length: message.length }, (_, index) => (
     ((message[index]?.Filename).substring(0, (message[index]?.Filename).lastIndexOf("_")).includes(searchPrompt)) && (<div key={index} className='relative'>
