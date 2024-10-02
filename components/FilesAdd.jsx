@@ -28,29 +28,6 @@ function FileEncryptor() {
     setEncryptedData(encrypted);
   };
 
-  const handleDecrypt = () => {
-    try {
-      const decrypted = CryptoJS.AES.decrypt(inputCipher, secretKey);
-      const typedArray = new Uint8Array(decrypted.words.length * 4);
-      for (let i = 0; i < decrypted.words.length; i++) {
-        const word = decrypted.words[i];
-        typedArray[i * 4] = (word >> 24) & 0xff;
-        typedArray[i * 4 + 1] = (word >> 16) & 0xff;
-        typedArray[i * 4 + 2] = (word >> 8) & 0xff;
-        typedArray[i * 4 + 3] = word & 0xff;
-      }
-      const blob = new Blob([typedArray], { type: fileType });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = fileName;
-      link.click();
-    } catch (error) {
-      console.error('Ошибка при расшифровке:', error);
-      alert('Ошибка при расшифровке файла. Проверьте правильность шифра.');
-    }
-  };
-
   //------------------------------------//
   //SERVER ACTIONS//
 
@@ -67,10 +44,10 @@ function FileEncryptor() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const filename = fileName.split('.')[0];
-      const extension = fileName.split('.')[1];
+      const filename = fileName.substring(0, fileName.lastIndexOf('.'));
+      const extension = fileName.substr(-(fileName.lastIndexOf('.')));
       const hash = encryptedData;
-      //console.log(extension);
+      //console.log(filename, extension);
       const response = await axios.post('https://safethrow-server.ru/api/addfiles', { filename, extension, owner, hash });
       setMessage(response.data.message);
       //console.log(response.data.message);

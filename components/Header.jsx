@@ -35,7 +35,7 @@ export default function Header() {
                     <AvatarFallback>{session?.data?.user.name.slice(0, 2).toUpperCase()}</AvatarFallback>
                   </Avatar>
                 </div>
-                <Button variant="link" className="text-sm" onClick={() => { router.push("/profile") }}>{session?.data?.user.name}</Button>
+                <Button variant="link" className="text-xs md:text-sm" onClick={() => { router.push("/profile") }}>{session?.data?.user.name}</Button>
               </div>
               <Button href="api/auth/signin" className="" variant={"ghost"} onClick={() => signOut({ callbackUrl: '/' })} >Выйти</Button>
 
